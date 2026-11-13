@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:minimax-m31-flash",
+  "version": 1,
+  "updatedAt": 1794579086598,
+  "displayName": "MiniMax M3.1 Flash",
+  "displayNameI18n": {
+    "ko": "MiniMax M3.1 Flash"
+  },
+  "providerBaseId": "openrouter",
+  "description": "MiniMax M3.1 Flash via OpenRouter (minimax/minimax-m3.1-flash).",
+  "descriptionI18n": {
+    "ko": "MiniMax M3.1 Flash (OpenRouter, minimax/minimax-m3.1-flash)."
+  },
+  "tags": [
+    "openrouter",
+    "minimax"
+  ],
+  "sortOrder": 556,
+  "modelId": "minimax/minimax-m3.1-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 524288
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

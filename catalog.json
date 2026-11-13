@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "b9bc3276cddfd2af1d9c22fb001f751ca1cbdd9d16f01a4516e1be2f93527e44",
+  "hash": "672125560b89a43d4d29be6bb5332dd37ac48f326d08ebcffae1796fb5b51eeb",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -6405,6 +6405,305 @@
       ],
       "sourceUrls": [
         "https://platform.claude.com/docs/en/models/fable-5-1/overview",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://platform.claude.com/docs/en/build-with-claude/effort",
+        "https://platform.claude.com/docs/en/build-with-claude/thinking"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "maxOutputTokens": 128000,
+        "sourceUrls": [
+          "https://platform.claude.com/docs/en/about-claude/models/overview"
+        ]
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "anthropic:fable-52": {
+      "id": "anthropic:fable-52",
+      "version": 1,
+      "updatedAt": 1794579086598,
+      "displayName": "Claude Fable 5.2",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5.2"
+      },
+      "providerBaseId": "anthropic",
+      "description": "Claude Fable 5.2 via the Anthropic Messages API. Adaptive thinking is always on (thinking cannot be disabled); control depth with effort.",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5.2 (Anthropic Messages API). 적응형 thinking 상시 활성(비활성화 불가), effort로 추론 강도 조절."
+      },
+      "tags": [
+        "anthropic",
+        "claude",
+        "fable",
+        "flagship",
+        "reasoning",
+        "long-context"
+      ],
+      "sortOrder": 193,
+      "modelId": "claude-fable-5-2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.anthropic.com/v1/messages"
+      },
+      "auth": {
+        "kind": "x-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {
+        "max_tokens": 4096
+      },
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Claude model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "claude-fable-5-2",
+              "label": "Claude Fable 5.2"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Claude 모델 ID."
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "thinking_type",
+          "type": "string",
+          "label": "Thinking Mode",
+          "description": "Adaptive thinking is always on for Claude Fable 5.2; it cannot be disabled.",
+          "enum": [
+            {
+              "value": "adaptive",
+              "label": "Adaptive"
+            }
+          ],
+          "default": "adaptive",
+          "mapsTo": {
+            "target": "body",
+            "path": "thinking.type"
+          },
+          "descriptionI18n": {
+            "ko": "Claude Fable 5.2는 적응형 thinking이 상시 활성이며 비활성화할 수 없습니다."
+          }
+        },
+        {
+          "key": "effort",
+          "type": "string",
+          "label": "Thinking Effort",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "output_config.effort"
+          }
+        },
+        {
+          "key": "thinking_display",
+          "type": "string",
+          "label": "Thinking Display",
+          "enum": [
+            {
+              "value": "summarized",
+              "label": "Summarized"
+            },
+            {
+              "value": "omitted",
+              "label": "Omitted"
+            }
+          ],
+          "default": "summarized",
+          "mapsTo": {
+            "target": "body",
+            "path": "thinking.display"
+          },
+          "description": "Summarized returns a readable summary of the thinking; Omitted returns thinking blocks with empty text (faster first token, same cost). The API default on this model is Omitted.",
+          "descriptionI18n": {
+            "ko": "Summarized는 thinking 요약 텍스트를 돌려주고, Omitted는 텍스트 없이 빈 thinking 블록만 돌려줍니다(첫 토큰이 빨라지고 비용은 같음). 이 모델의 API 기본값은 Omitted입니다."
+          }
+        },
+        {
+          "key": "service_tier",
+          "type": "string",
+          "label": "Service Tier",
+          "enum": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "standard_only",
+              "label": "Standard only"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "service_tier"
+          }
+        },
+        {
+          "key": "user_id",
+          "type": "string",
+          "label": "User ID (metadata)",
+          "mapsTo": {
+            "target": "body",
+            "path": "metadata.user_id"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "control",
+            "label": "Control",
+            "order": 5,
+            "labelI18n": {
+              "ko": "요청 제어"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "thinking_type",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "thinking_display",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 3
+          },
+          {
+            "key": "service_tier",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 1
+          },
+          {
+            "key": "user_id",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 2
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/models/fable-5-2/overview",
         "https://platform.claude.com/docs/en/about-claude/models/overview",
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking"
@@ -19361,6 +19660,343 @@
         "maxOutputTokens": 65536,
         "sourceUrls": [
           "https://aistudio.google.com/docs/models/gemini-4-carbon"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "google:gemini-4-hydrogen": {
+      "id": "google:gemini-4-hydrogen",
+      "version": 1,
+      "displayName": "Gemini 4 Hydrogen",
+      "displayNameI18n": {
+        "ko": "Gemini 4 Hydrogen"
+      },
+      "providerBaseId": "google",
+      "description": "Gemini 4 Hydrogen via Google AI Studio (generateContent).",
+      "descriptionI18n": {
+        "ko": "Gemini 4 Hydrogen (Google AI Studio, generateContent)."
+      },
+      "tags": [
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 293,
+      "modelId": "gemini-4-hydrogen",
+      "updatedAt": 1794579086598,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models"
+      },
+      "auth": {
+        "kind": "x-goog-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Gemini model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gemini-4-hydrogen",
+              "label": "Gemini 4 Hydrogen"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Gemini 모델 ID."
+          }
+        },
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          },
+          "default": 32768
+        },
+        {
+          "key": "stopSequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.stopSequences"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.seed"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        },
+        {
+          "key": "includeThoughts",
+          "type": "boolean",
+          "label": "Include Thoughts",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.includeThoughts"
+          }
+        },
+        {
+          "key": "responseMimeType",
+          "type": "string",
+          "label": "Response Mime Type",
+          "enum": [
+            {
+              "value": "text/plain",
+              "label": "Text"
+            },
+            {
+              "value": "application/json",
+              "label": "JSON"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseMimeType"
+          }
+        },
+        {
+          "key": "responseSchema",
+          "type": "json",
+          "label": "Response Schema",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseSchema"
+          }
+        },
+        {
+          "key": "responseLogprobs",
+          "type": "boolean",
+          "label": "Response Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseLogprobs"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 1,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.logprobs"
+          }
+        },
+        {
+          "key": "safetySettings",
+          "type": "json",
+          "label": "Safety Settings",
+          "mapsTo": {
+            "target": "body",
+            "path": "safetySettings"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "maxOutputTokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "stopSequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "thinkingLevel",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "includeThoughts",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "responseMimeType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "responseSchema",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "responseLogprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "responseLogprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "safetySettings",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 5
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://aistudio.google.com/docs/models/gemini-4-hydrogen",
+        "https://aistudio.google.com/docs/latest-model",
+        "https://aistudio.google.com/api-reference/generate-content"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536,
+        "sourceUrls": [
+          "https://aistudio.google.com/docs/models/gemini-4-hydrogen"
         ]
       },
       "recommendedTokenizer": "gemma",
@@ -36240,6 +36876,421 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openai:gpt-61-terra": {
+      "id": "openai:gpt-61-terra",
+      "version": 1,
+      "displayName": "OpenAI GPT-6.1 Terra",
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-6.1 Terra"
+      },
+      "providerBaseId": "openai",
+      "description": "GPT-6.1 Terra via OpenAI Chat Completions.",
+      "descriptionI18n": {
+        "ko": "GPT-6.1 Terra (OpenAI Chat Completions)."
+      },
+      "tags": [
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 90,
+      "modelId": "gpt-6.1-terra",
+      "updatedAt": 1794579086598,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.openai.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "OpenAI model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gpt-6.1-terra",
+              "label": "GPT-6.1 Terra"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "OpenAI 모델 ID."
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        },
+        {
+          "key": "verbosity",
+          "type": "string",
+          "label": "Verbosity",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "verbosity"
+          }
+        },
+        {
+          "key": "service_tier",
+          "type": "string",
+          "label": "Service Tier",
+          "enum": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "flex",
+              "label": "Flex"
+            },
+            {
+              "value": "priority",
+              "label": "Priority"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "service_tier"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "parallel_tool_calls",
+          "type": "boolean",
+          "label": "Parallel Tool Calls",
+          "default": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "parallel_tool_calls"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "boolean",
+          "label": "Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "logprobs"
+          }
+        },
+        {
+          "key": "top_logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 0,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_logprobs"
+          }
+        },
+        {
+          "key": "user",
+          "type": "string",
+          "label": "User",
+          "mapsTo": {
+            "target": "body",
+            "path": "user"
+          }
+        },
+        {
+          "key": "metadata",
+          "type": "json",
+          "label": "Metadata",
+          "mapsTo": {
+            "target": "body",
+            "path": "metadata"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          },
+          {
+            "id": "control",
+            "label": "Control",
+            "order": 6,
+            "labelI18n": {
+              "ko": "요청 제어"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "verbosity",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "service_tier",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 1
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "parallel_tool_calls",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "logprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "top_logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "logprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "user",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 2
+          },
+          {
+            "key": "metadata",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 3
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+        "https://developers.openai.com/api/docs/changelog"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "maxOutputTokens": 128000,
+        "sourceUrls": [
+          "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openai:o3": {
       "id": "openai:o3",
       "version": 1,
@@ -36782,6 +37833,64 @@
       ],
       "sortOrder": 506,
       "modelId": "anthropic/claude-fable-5.1",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "openrouter:claude-fable-52": {
+      "id": "openrouter:claude-fable-52",
+      "version": 1,
+      "updatedAt": 1794579086598,
+      "displayName": "Claude Fable 5.2",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5.2"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Claude Fable 5.2 via OpenRouter (anthropic/claude-fable-5.2).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5.2 (OpenRouter, anthropic/claude-fable-5.2)."
+      },
+      "tags": [
+        "openrouter",
+        "claude",
+        "fable"
+      ],
+      "sortOrder": 552,
+      "modelId": "anthropic/claude-fable-5.2",
       "endpoint": {
         "kind": "static",
         "url": "https://openrouter.ai/api/v1/chat/completions"
@@ -38072,6 +39181,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "openrouter:gemini-4-hydrogen": {
+      "id": "openrouter:gemini-4-hydrogen",
+      "version": 1,
+      "updatedAt": 1794579086598,
+      "displayName": "Gemini 4 Hydrogen",
+      "displayNameI18n": {
+        "ko": "Gemini 4 Hydrogen"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Gemini 4 Hydrogen via OpenRouter (google/gemini-4-hydrogen).",
+      "descriptionI18n": {
+        "ko": "Gemini 4 Hydrogen (OpenRouter, google/gemini-4-hydrogen)."
+      },
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 553,
+      "modelId": "google/gemini-4-hydrogen",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "openrouter:gemma-4-26b": {
       "id": "openrouter:gemma-4-26b",
       "version": 1,
@@ -39277,6 +40443,65 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:gpt-61-terra": {
+      "id": "openrouter:gpt-61-terra",
+      "version": 1,
+      "updatedAt": 1794579086598,
+      "displayName": "GPT-6.1 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-6.1 Terra"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-6.1 Terra via OpenRouter (openai/gpt-6.1-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.1 Terra (OpenRouter, openai/gpt-6.1-terra)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 554,
+      "modelId": "openai/gpt-6.1-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:grok-45": {
       "id": "openrouter:grok-45",
       "version": 1,
@@ -39503,6 +40728,62 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:kimi-k31-pro": {
+      "id": "openrouter:kimi-k31-pro",
+      "version": 1,
+      "updatedAt": 1794579086598,
+      "displayName": "Kimi K3.1 Pro",
+      "displayNameI18n": {
+        "ko": "Kimi K3.1 Pro"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Kimi K3.1 Pro via OpenRouter (moonshotai/kimi-k3.1-pro).",
+      "descriptionI18n": {
+        "ko": "Kimi K3.1 Pro (OpenRouter, moonshotai/kimi-k3.1-pro)."
+      },
+      "tags": [
+        "openrouter",
+        "kimi"
+      ],
+      "sortOrder": 555,
+      "modelId": "moonshotai/kimi-k3.1-pro",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:minimax-m3": {
       "id": "openrouter:minimax-m3",
       "version": 1,
@@ -39556,6 +40837,63 @@
           "https://openrouter.ai/api/v1/models"
         ],
         "maxOutputTokens": 512000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:minimax-m31-flash": {
+      "id": "openrouter:minimax-m31-flash",
+      "version": 1,
+      "updatedAt": 1794579086598,
+      "displayName": "MiniMax M3.1 Flash",
+      "displayNameI18n": {
+        "ko": "MiniMax M3.1 Flash"
+      },
+      "providerBaseId": "openrouter",
+      "description": "MiniMax M3.1 Flash via OpenRouter (minimax/minimax-m3.1-flash).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3.1 Flash (OpenRouter, minimax/minimax-m3.1-flash)."
+      },
+      "tags": [
+        "openrouter",
+        "minimax"
+      ],
+      "sortOrder": 556,
+      "modelId": "minimax/minimax-m3.1-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 524288
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -44897,6 +46235,7 @@
   "profileHashes": {
     "anthropic:fable-5": "733cfc7360718cfa38f1cc9ff2156176016e83b7ef8fc04aa28da49caecd51c6",
     "anthropic:fable-51": "29a63ae5f389739f46cda43af6a613518cb9b42d156216696602b30ba047d216",
+    "anthropic:fable-52": "46fbee1493d78521b93de313d0e1945d31f63ee213859951efdbbef0ae4daca8",
     "anthropic:haiku-45": "235d37e91f1b7ae6cad183946a013d27ef9843d035560ff2f996d21bb0593d65",
     "anthropic:haiku-55": "87ee9e3bc5c52208f04029b467aa97e90cd64bb78f9363aa8e6843f9c992aa29",
     "anthropic:opus-4": "82feacbf39d74714820155752987153371f99d6318621a1896440699e4bf329d",
@@ -44940,6 +46279,7 @@
     "google:gemini-38-flash": "b37350106724fc67937144bfa672651a1c901ac8015e74c1e54aafc204dae78c",
     "google:gemini-4-argon": "5277b999d4a4d1a1d8e7889846c7e607e81cc845f7e791a83def71e5148cfca7",
     "google:gemini-4-carbon": "ed944605ebc56551ccc97192d86454ff345da0e9097eda951adaa628a137eca3",
+    "google:gemini-4-hydrogen": "94ad2e2aae6ac592b7da3f473e9f8aace94efe3c3d117be2e35af3def95f8e65",
     "google:gemma-4-26b": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33",
     "google:gemma-4-31b": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13",
     "lightning-ai:claude-fable-5": "ee09d68bb04c0a5e448f6c2b5f6589ef50b98ed706207b079a7d6482bcd78285",
@@ -45087,11 +46427,13 @@
     "openai:gpt-6-luna": "131eafbea4138101aaeb257d6837f626ac22abc47d9e78e60a2b712fc17bc6ce",
     "openai:gpt-6-sol": "d0a22a9ac34f057c243aca4e67f566ab3d3333d9af68111e9f0283d12034da99",
     "openai:gpt-61-sol": "875a3c5dcdd6b035bb11c74faef5184e6dc49244272a99f4215c3f02f1e8f90c",
+    "openai:gpt-61-terra": "64a9d6ee300127931c7de657fa3036e192f8b47855e3888626bcb5ac0bfcba20",
     "openai:o3": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d",
     "openai-compatible:custom-noauth": "7048ecedbb15d1f851a38077305a2a78093277e81eb8e829f13f9b5f3f7ac696",
     "openai-compatible:custom": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b",
     "openrouter:claude-fable-5": "11dde47691746bdf62df4a4361e03df7e9f6386401f035e4de6f779e62f703ac",
     "openrouter:claude-fable-51": "b8debf74c0d9c32417150ee3a64e4138aea3810863c655736d3492bb861efd3e",
+    "openrouter:claude-fable-52": "b59df00f066bbbfad1930891a8472f66b61345b362aa9fd602d64bcea524eef9",
     "openrouter:claude-haiku-55": "60f10de527df976bb39b432e5570d25a463e8a047196f021cf94275bcba6baf0",
     "openrouter:claude-opus-46": "192f76ad5e996fffe223e7c986f1ec17cb5a8504a6c0cf4582744d44480fe6ab",
     "openrouter:claude-opus-47": "1b286c74916ee02e11c7bf347e5d53c6bf9d92e46bd750d2719a3dcf933177fe",
@@ -45114,6 +46456,7 @@
     "openrouter:gemini-38-flash": "69901902695c5693cac1633e2fb75915b24d75bffc32615a12e46b35d6996d91",
     "openrouter:gemini-4-argon": "49e9048e28442f05d26bd0e7ae3cac09e5d366d0a1b3f6070e7a162de9db3840",
     "openrouter:gemini-4-carbon": "326f6762b474a1b08b1a4b146c4e9baa9cf4bda0d0ae0715464d94271ad4c097",
+    "openrouter:gemini-4-hydrogen": "46bca36bd86901d5bce017e2d13a0cf7918452c4518959c87f87e63359ef55a7",
     "openrouter:gemma-4-26b": "782a24a45379c4b9a94e1e9d0043d41e550cc8297544da178c3aa24e0463ff92",
     "openrouter:gemma-4-31b": "189d5411dd94a5daf1eb3e4f59d11e579666bc22f087eba76bb92b405bcad59b",
     "openrouter:glm-51": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf",
@@ -45135,11 +46478,14 @@
     "openrouter:gpt-6-luna": "be12451e80781f4d48ad4679b4894142d6e1062bf19d76f44947a7b0fc54e786",
     "openrouter:gpt-6-sol": "9f84cfa4716dfae93ee7a60b6c6414b08b4b7c664d4b3774acdee8943014fac7",
     "openrouter:gpt-61-sol": "25722670ee3b2a3bf8d2e91cef1d00d88b486beff86b20431c82023098376749",
+    "openrouter:gpt-61-terra": "d99006a79f62709d5943f9744ad20ace512e5ee3726682aa0ad6d8c105d2d80b",
     "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
     "openrouter:grok-47": "2493848623eb699e49116a39e0fdf12897d5735dd4a6524d63dcf8f1a4d665cf",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
     "openrouter:kimi-k3": "2939b082383e2b7add2f7862e903cd52abff9bcd0b84b6ff76d2d31dfd15de9b",
+    "openrouter:kimi-k31-pro": "a8d6631b105957b4c9bf31ea4c70be3d9bdf87db2c6dd0a2a508a9a27b2d4fd4",
     "openrouter:minimax-m3": "931328b2e02ea4683ad542df533d6707b37d66c3b620cd72bdaf50eb96d970fb",
+    "openrouter:minimax-m31-flash": "8c47a0d4b698f03adc2b1963b63425c6eb68b9ee7f8e7deeb664de7b74ac7818",
     "openrouter:openai-compatible": "3c99e08637648252f92143d8ce8477e481ba29ad7ecee9f0bc48a9ce55375363",
     "openrouter:qwen37-max": "048b06fc5e04284cdc609bf88f8a60d276e86d1b8a87e203e0c691642350722b",
     "openrouter:qwen37-plus": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5",
