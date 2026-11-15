@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "672125560b89a43d4d29be6bb5332dd37ac48f326d08ebcffae1796fb5b51eeb",
+  "hash": "6852904d5327814444a7ad1faa7c063a71b95d800f945309b117db6908992726",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -41701,6 +41701,64 @@
       "recommendedTokenizer": "claude",
       "profileStatus": "current"
     },
+    "vercel:claude-fable-52": {
+      "id": "vercel:claude-fable-52",
+      "version": 1,
+      "updatedAt": 1794701203972,
+      "displayName": "Claude Fable 5.2",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5.2"
+      },
+      "providerBaseId": "vercel",
+      "description": "Claude Fable 5.2 via Vercel AI Gateway (anthropic/claude-fable-5.2).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5.2 (Vercel AI Gateway, anthropic/claude-fable-5.2)."
+      },
+      "tags": [
+        "vercel",
+        "claude",
+        "fable"
+      ],
+      "sortOrder": 591,
+      "modelId": "anthropic/claude-fable-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
     "vercel:claude-haiku-55": {
       "id": "vercel:claude-haiku-55",
       "version": 1,
@@ -42951,6 +43009,63 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "vercel:gemini-4-hydrogen": {
+      "id": "vercel:gemini-4-hydrogen",
+      "version": 1,
+      "updatedAt": 1794701203972,
+      "displayName": "Gemini 4 Hydrogen",
+      "displayNameI18n": {
+        "ko": "Gemini 4 Hydrogen"
+      },
+      "providerBaseId": "vercel",
+      "description": "Gemini 4 Hydrogen via Vercel AI Gateway (google/gemini-4-hydrogen).",
+      "descriptionI18n": {
+        "ko": "Gemini 4 Hydrogen (Vercel AI Gateway, google/gemini-4-hydrogen)."
+      },
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 592,
+      "modelId": "google/gemini-4-hydrogen",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 1000000
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
@@ -44220,6 +44335,65 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:gpt-61-terra": {
+      "id": "vercel:gpt-61-terra",
+      "version": 1,
+      "updatedAt": 1794701203972,
+      "displayName": "GPT-6.1 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-6.1 Terra"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-6.1 Terra via Vercel AI Gateway (openai/gpt-6.1-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.1 Terra (Vercel AI Gateway, openai/gpt-6.1-terra)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 593,
+      "modelId": "openai/gpt-6.1-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:grok-45": {
       "id": "vercel:grok-45",
       "version": 2,
@@ -44448,6 +44622,63 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:kimi-k31-pro": {
+      "id": "vercel:kimi-k31-pro",
+      "version": 1,
+      "updatedAt": 1794701203972,
+      "displayName": "Kimi K3.1 Pro",
+      "displayNameI18n": {
+        "ko": "Kimi K3.1 Pro"
+      },
+      "providerBaseId": "vercel",
+      "description": "Kimi K3.1 Pro via Vercel AI Gateway (moonshotai/kimi-k3.1-pro).",
+      "descriptionI18n": {
+        "ko": "Kimi K3.1 Pro (Vercel AI Gateway, moonshotai/kimi-k3.1-pro)."
+      },
+      "tags": [
+        "vercel",
+        "kimi"
+      ],
+      "sortOrder": 594,
+      "modelId": "moonshotai/kimi-k3.1-pro",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 262144
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:minimax-m3": {
       "id": "vercel:minimax-m3",
       "version": 1,
@@ -44501,6 +44732,63 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 1000000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:minimax-m31-flash": {
+      "id": "vercel:minimax-m31-flash",
+      "version": 1,
+      "updatedAt": 1794701203972,
+      "displayName": "MiniMax M3.1 Flash",
+      "displayNameI18n": {
+        "ko": "MiniMax M3.1 Flash"
+      },
+      "providerBaseId": "vercel",
+      "description": "MiniMax M3.1 Flash via Vercel AI Gateway (minimax/minimax-m3.1-flash).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3.1 Flash (Vercel AI Gateway, minimax/minimax-m3.1-flash)."
+      },
+      "tags": [
+        "vercel",
+        "minimax"
+      ],
+      "sortOrder": 595,
+      "modelId": "minimax/minimax-m3.1-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 524288
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -46500,6 +46788,7 @@
     "square1:qwen38-27b": "a5ae54431a97953904ceeaa6bb3b754315e9601709980330565950ad93019267",
     "vercel:claude-fable-5": "d1af4a46d381bc525199e2e1e5206df1b609ae0af6fa64bd1c87cb86eb683058",
     "vercel:claude-fable-51": "41feaf769f67fe6e113ea0d6f0dc8563e09908488f9894ec302e92bab4fc532b",
+    "vercel:claude-fable-52": "cbf34d84b0f1e39d11467cd5ff912f8c9b2aabdb0fad6d2f3f9b054c4f54491b",
     "vercel:claude-haiku-55": "4c73a081f5a1d56f2b03bec65262258459db93eb7dbff9b75f5afb380275c240",
     "vercel:claude-opus-46": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8",
     "vercel:claude-opus-47": "70fd5b735f5ef218011e216e61bef6d4119dedbbdc65a9028c73f42962b077f1",
@@ -46522,6 +46811,7 @@
     "vercel:gemini-38-flash": "014ab9168003c04a2b13a617d70bbb99ddc7f3362d439a48ee610fa48151eab3",
     "vercel:gemini-4-argon": "c79d37bc662808edb72c11f72f15cce2264170468cbabd72b0bf2b8059bf2c67",
     "vercel:gemini-4-carbon": "be6b7d8f56dca36a0d2a78f0b8e4d68b20e62003013217e5d00db50caa6f7579",
+    "vercel:gemini-4-hydrogen": "7cc217dc59b96daf6d31e48db2b1cb72c321f1200d061e3e972e0f031b24f28c",
     "vercel:gemma-4-26b": "26b10496d9d3de7dc5b02a3e05e9c062fdbc18cc29cd97b98eb22eacb4cc844a",
     "vercel:gemma-4-31b": "beda0439bad645a0a7ddc2d9c3b8c258523050338d2375f5bd5ab44eb95065eb",
     "vercel:glm-51": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859",
@@ -46544,11 +46834,14 @@
     "vercel:gpt-6-luna": "dd0126c1da66b73fb82de9915ab77b9352b500db258fc9abdd844e063489be26",
     "vercel:gpt-6-sol": "2fb3b45c560e953756091f214c4a80dd820ba6652e4126298c9e08c4fd664e71",
     "vercel:gpt-61-sol": "520d1fb896605f73da24a2b91379ce117ea2a3437858e73241cce7449976f024",
+    "vercel:gpt-61-terra": "b7f9694631eb2ceb37c207dafdf56a2fada2d8fbc0933ffb9785737a843b1c27",
     "vercel:grok-45": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870",
     "vercel:grok-47": "6b8e13cf9d9ce937b88f44934a44a8394352c8dab1ba56e4082fe538f53531f6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:kimi-k3": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc",
+    "vercel:kimi-k31-pro": "608cc12e5d948503d585631a1951adf7537615adce143dcbee4134ffd0e60cd0",
     "vercel:minimax-m3": "44a2731faf35a94ddec6ad856b3b1077d2937915b5479e3737ca8e9e35f6b5b3",
+    "vercel:minimax-m31-flash": "e372e5b12b06c89d17be5a976b0ba2a08c190b2ea832e3b39a4bdf56247073db",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
     "vercel:qwen37-max": "7cb5bae51a325a77ff45b6ad817fed17f2dca8d9163472770d642db9c3c16879",
     "vercel:qwen37-plus": "84492c6ac4dcb865a3902eaa0a2eb0ca622859590a3d30dbe3fd796cdc425ea6",

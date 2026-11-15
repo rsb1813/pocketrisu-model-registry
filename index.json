@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "672125560b89a43d4d29be6bb5332dd37ac48f326d08ebcffae1796fb5b51eeb",
+  "hash": "6852904d5327814444a7ad1faa7c063a71b95d800f945309b117db6908992726",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -1450,6 +1450,11 @@
       "hash": "41feaf769f67fe6e113ea0d6f0dc8563e09908488f9894ec302e92bab4fc532b"
     },
     {
+      "id": "vercel:claude-fable-52",
+      "url": "profiles/vercel/claude-fable-52.json",
+      "hash": "cbf34d84b0f1e39d11467cd5ff912f8c9b2aabdb0fad6d2f3f9b054c4f54491b"
+    },
+    {
       "id": "vercel:claude-haiku-55",
       "url": "profiles/vercel/claude-haiku-55.json",
       "hash": "4c73a081f5a1d56f2b03bec65262258459db93eb7dbff9b75f5afb380275c240"
@@ -1558,6 +1563,11 @@
       "id": "vercel:gemini-4-carbon",
       "url": "profiles/vercel/gemini-4-carbon.json",
       "hash": "be6b7d8f56dca36a0d2a78f0b8e4d68b20e62003013217e5d00db50caa6f7579"
+    },
+    {
+      "id": "vercel:gemini-4-hydrogen",
+      "url": "profiles/vercel/gemini-4-hydrogen.json",
+      "hash": "7cc217dc59b96daf6d31e48db2b1cb72c321f1200d061e3e972e0f031b24f28c"
     },
     {
       "id": "vercel:gemma-4-26b",
@@ -1670,6 +1680,11 @@
       "hash": "520d1fb896605f73da24a2b91379ce117ea2a3437858e73241cce7449976f024"
     },
     {
+      "id": "vercel:gpt-61-terra",
+      "url": "profiles/vercel/gpt-61-terra.json",
+      "hash": "b7f9694631eb2ceb37c207dafdf56a2fada2d8fbc0933ffb9785737a843b1c27"
+    },
+    {
       "id": "vercel:grok-45",
       "url": "profiles/vercel/grok-45.json",
       "hash": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870"
@@ -1690,9 +1705,19 @@
       "hash": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc"
     },
     {
+      "id": "vercel:kimi-k31-pro",
+      "url": "profiles/vercel/kimi-k31-pro.json",
+      "hash": "608cc12e5d948503d585631a1951adf7537615adce143dcbee4134ffd0e60cd0"
+    },
+    {
       "id": "vercel:minimax-m3",
       "url": "profiles/vercel/minimax-m3.json",
       "hash": "44a2731faf35a94ddec6ad856b3b1077d2937915b5479e3737ca8e9e35f6b5b3"
+    },
+    {
+      "id": "vercel:minimax-m31-flash",
+      "url": "profiles/vercel/minimax-m31-flash.json",
+      "hash": "e372e5b12b06c89d17be5a976b0ba2a08c190b2ea832e3b39a4bdf56247073db"
     },
     {
       "id": "vercel:openai-compatible",

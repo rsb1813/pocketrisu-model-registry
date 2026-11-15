@@ -1,0 +1,57 @@
+{
+  "id": "vercel:minimax-m31-flash",
+  "version": 1,
+  "updatedAt": 1794701203972,
+  "displayName": "MiniMax M3.1 Flash",
+  "displayNameI18n": {
+    "ko": "MiniMax M3.1 Flash"
+  },
+  "providerBaseId": "vercel",
+  "description": "MiniMax M3.1 Flash via Vercel AI Gateway (minimax/minimax-m3.1-flash).",
+  "descriptionI18n": {
+    "ko": "MiniMax M3.1 Flash (Vercel AI Gateway, minimax/minimax-m3.1-flash)."
+  },
+  "tags": [
+    "vercel",
+    "minimax"
+  ],
+  "sortOrder": 595,
+  "modelId": "minimax/minimax-m3.1-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 524288
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}
