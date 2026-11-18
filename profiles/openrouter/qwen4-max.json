@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:qwen4-max",
+  "version": 1,
+  "updatedAt": 1794960545255,
+  "displayName": "Qwen4 Max",
+  "displayNameI18n": {
+    "ko": "Qwen4 Max"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Qwen4 Max via OpenRouter (qwen/qwen4-max).",
+  "descriptionI18n": {
+    "ko": "Qwen4 Max (OpenRouter, qwen/qwen4-max)."
+  },
+  "tags": [
+    "openrouter",
+    "qwen"
+  ],
+  "sortOrder": 559,
+  "modelId": "qwen/qwen4-max",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 131072
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "6852904d5327814444a7ad1faa7c063a71b95d800f945309b117db6908992726",
+  "hash": "11fdbd57f2e3a8f23e8d1fd18576c0690221ff403bd0699e9f0fc6bb88298f57",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -37291,6 +37291,831 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openai:gpt-62-astra": {
+      "id": "openai:gpt-62-astra",
+      "version": 1,
+      "displayName": "OpenAI GPT-6.2 Astra",
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-6.2 Astra"
+      },
+      "providerBaseId": "openai",
+      "description": "GPT-6.2 Astra via OpenAI Chat Completions.",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Astra (OpenAI Chat Completions)."
+      },
+      "tags": [
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 89,
+      "modelId": "gpt-6.2-astra",
+      "updatedAt": 1794960545255,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.openai.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "OpenAI model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gpt-6.2-astra",
+              "label": "GPT-6.2 Astra"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "OpenAI 모델 ID."
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "description": "GPT-6.2 Astra always reasons; \"none\" is not accepted.",
+          "descriptionI18n": {
+            "ko": "GPT-6.2 Astra는 항상 추론합니다. \"none\"은 허용되지 않습니다."
+          }
+        },
+        {
+          "key": "verbosity",
+          "type": "string",
+          "label": "Verbosity",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "verbosity"
+          }
+        },
+        {
+          "key": "service_tier",
+          "type": "string",
+          "label": "Service Tier",
+          "enum": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "flex",
+              "label": "Flex"
+            },
+            {
+              "value": "priority",
+              "label": "Priority"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "service_tier"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "parallel_tool_calls",
+          "type": "boolean",
+          "label": "Parallel Tool Calls",
+          "default": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "parallel_tool_calls"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "boolean",
+          "label": "Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "logprobs"
+          }
+        },
+        {
+          "key": "top_logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 0,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_logprobs"
+          }
+        },
+        {
+          "key": "user",
+          "type": "string",
+          "label": "User",
+          "mapsTo": {
+            "target": "body",
+            "path": "user"
+          }
+        },
+        {
+          "key": "metadata",
+          "type": "json",
+          "label": "Metadata",
+          "mapsTo": {
+            "target": "body",
+            "path": "metadata"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          },
+          {
+            "id": "control",
+            "label": "Control",
+            "order": 6,
+            "labelI18n": {
+              "ko": "요청 제어"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "verbosity",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "service_tier",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 1
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "parallel_tool_calls",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "logprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "top_logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "logprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "user",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 2
+          },
+          {
+            "key": "metadata",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 3
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://developers.openai.com/api/docs/models/gpt-6.2-astra"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "maxOutputTokens": 128000,
+        "sourceUrls": [
+          "https://developers.openai.com/api/docs/models/gpt-6.2-astra"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openai:gpt-62-sol": {
+      "id": "openai:gpt-62-sol",
+      "version": 1,
+      "displayName": "OpenAI GPT-6.2 Sol",
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-6.2 Sol"
+      },
+      "providerBaseId": "openai",
+      "description": "GPT-6.2 Sol via OpenAI Chat Completions.",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Sol (OpenAI Chat Completions)."
+      },
+      "tags": [
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 88,
+      "modelId": "gpt-6.2-sol",
+      "updatedAt": 1794960545255,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.openai.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "OpenAI model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gpt-6.2-sol",
+              "label": "GPT-6.2 Sol"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "OpenAI 모델 ID."
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        },
+        {
+          "key": "verbosity",
+          "type": "string",
+          "label": "Verbosity",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "verbosity"
+          }
+        },
+        {
+          "key": "service_tier",
+          "type": "string",
+          "label": "Service Tier",
+          "enum": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "flex",
+              "label": "Flex"
+            },
+            {
+              "value": "priority",
+              "label": "Priority"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "service_tier"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "parallel_tool_calls",
+          "type": "boolean",
+          "label": "Parallel Tool Calls",
+          "default": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "parallel_tool_calls"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "boolean",
+          "label": "Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "logprobs"
+          }
+        },
+        {
+          "key": "top_logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 0,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_logprobs"
+          }
+        },
+        {
+          "key": "user",
+          "type": "string",
+          "label": "User",
+          "mapsTo": {
+            "target": "body",
+            "path": "user"
+          }
+        },
+        {
+          "key": "metadata",
+          "type": "json",
+          "label": "Metadata",
+          "mapsTo": {
+            "target": "body",
+            "path": "metadata"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          },
+          {
+            "id": "control",
+            "label": "Control",
+            "order": 6,
+            "labelI18n": {
+              "ko": "요청 제어"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "verbosity",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "service_tier",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 1
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "parallel_tool_calls",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "logprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "top_logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "logprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "user",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 2
+          },
+          {
+            "key": "metadata",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 3
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+        "https://developers.openai.com/api/docs/changelog"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "maxOutputTokens": 128000,
+        "sourceUrls": [
+          "https://developers.openai.com/api/docs/models/gpt-6.2-sol"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openai:o3": {
       "id": "openai:o3",
       "version": 1,
@@ -40502,6 +41327,124 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:gpt-62-astra": {
+      "id": "openrouter:gpt-62-astra",
+      "version": 1,
+      "updatedAt": 1794960545255,
+      "displayName": "GPT-6.2 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Astra"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-6.2 Astra via OpenRouter (openai/gpt-6.2-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Astra (OpenRouter, openai/gpt-6.2-astra)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 557,
+      "modelId": "openai/gpt-6.2-astra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:gpt-62-sol": {
+      "id": "openrouter:gpt-62-sol",
+      "version": 1,
+      "updatedAt": 1794960545255,
+      "displayName": "GPT-6.2 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Sol"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-6.2 Sol via OpenRouter (openai/gpt-6.2-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Sol (OpenRouter, openai/gpt-6.2-sol)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 558,
+      "modelId": "openai/gpt-6.2-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:grok-45": {
       "id": "openrouter:grok-45",
       "version": 1,
@@ -41153,6 +42096,63 @@
       "capabilities": [
         "streaming",
         "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:qwen4-max": {
+      "id": "openrouter:qwen4-max",
+      "version": 1,
+      "updatedAt": 1794960545255,
+      "displayName": "Qwen4 Max",
+      "displayNameI18n": {
+        "ko": "Qwen4 Max"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Qwen4 Max via OpenRouter (qwen/qwen4-max).",
+      "descriptionI18n": {
+        "ko": "Qwen4 Max (OpenRouter, qwen/qwen4-max)."
+      },
+      "tags": [
+        "openrouter",
+        "qwen"
+      ],
+      "sortOrder": 559,
+      "modelId": "qwen/qwen4-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
         "tools",
         "json"
       ],
@@ -44394,6 +45394,124 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:gpt-62-astra": {
+      "id": "vercel:gpt-62-astra",
+      "version": 1,
+      "updatedAt": 1794960545255,
+      "displayName": "GPT-6.2 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Astra"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-6.2 Astra via Vercel AI Gateway (openai/gpt-6.2-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Astra (Vercel AI Gateway, openai/gpt-6.2-astra)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 596,
+      "modelId": "openai/gpt-6.2-astra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:gpt-62-sol": {
+      "id": "vercel:gpt-62-sol",
+      "version": 1,
+      "updatedAt": 1794960545255,
+      "displayName": "GPT-6.2 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Sol"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-6.2 Sol via Vercel AI Gateway (openai/gpt-6.2-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Sol (Vercel AI Gateway, openai/gpt-6.2-sol)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 597,
+      "modelId": "openai/gpt-6.2-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:grok-45": {
       "id": "vercel:grok-45",
       "version": 2,
@@ -45061,6 +46179,63 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:qwen4-max": {
+      "id": "vercel:qwen4-max",
+      "version": 1,
+      "updatedAt": 1794960545255,
+      "displayName": "Qwen4 Max",
+      "displayNameI18n": {
+        "ko": "Qwen4 Max"
+      },
+      "providerBaseId": "vercel",
+      "description": "Qwen4 Max via Vercel AI Gateway (alibaba/qwen4-max).",
+      "descriptionI18n": {
+        "ko": "Qwen4 Max (Vercel AI Gateway, alibaba/qwen4-max)."
+      },
+      "tags": [
+        "vercel",
+        "qwen"
+      ],
+      "sortOrder": 598,
+      "modelId": "alibaba/qwen4-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 384000
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -46716,6 +47891,8 @@
     "openai:gpt-6-sol": "d0a22a9ac34f057c243aca4e67f566ab3d3333d9af68111e9f0283d12034da99",
     "openai:gpt-61-sol": "875a3c5dcdd6b035bb11c74faef5184e6dc49244272a99f4215c3f02f1e8f90c",
     "openai:gpt-61-terra": "64a9d6ee300127931c7de657fa3036e192f8b47855e3888626bcb5ac0bfcba20",
+    "openai:gpt-62-astra": "6a9ae58150511e9fcc549ca743e255b70dd475191f5456183db9ff42bbce6985",
+    "openai:gpt-62-sol": "543b9e3da0d6a18e554ca1c99998c15c81360abd67052ff44753540f1729679c",
     "openai:o3": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d",
     "openai-compatible:custom-noauth": "7048ecedbb15d1f851a38077305a2a78093277e81eb8e829f13f9b5f3f7ac696",
     "openai-compatible:custom": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b",
@@ -46767,6 +47944,8 @@
     "openrouter:gpt-6-sol": "9f84cfa4716dfae93ee7a60b6c6414b08b4b7c664d4b3774acdee8943014fac7",
     "openrouter:gpt-61-sol": "25722670ee3b2a3bf8d2e91cef1d00d88b486beff86b20431c82023098376749",
     "openrouter:gpt-61-terra": "d99006a79f62709d5943f9744ad20ace512e5ee3726682aa0ad6d8c105d2d80b",
+    "openrouter:gpt-62-astra": "bf5c209fb262800fcf0b390ebb4fd21caa5dcd84fab008d29decc2d8a81eee9d",
+    "openrouter:gpt-62-sol": "8a7d312585faed8cfef2ac19dba34d1f9fed7f730bed259888901a1eef7db937",
     "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
     "openrouter:grok-47": "2493848623eb699e49116a39e0fdf12897d5735dd4a6524d63dcf8f1a4d665cf",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
@@ -46779,6 +47958,7 @@
     "openrouter:qwen37-plus": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5",
     "openrouter:qwen38-flash": "9067bdb7fbcdc9edcb9d7b56d9511dc0ada7fa664b82c2740148e80da528de11",
     "openrouter:qwen38-max": "0671e432c1c554fe46f9d3306400545b0be5b18a49a4341aeb8156c9e7587b57",
+    "openrouter:qwen4-max": "742967dbeb7f83756d2a98a6fe94295d9060116be9bfe5b6d8189d31eca69bf6",
     "square1:deepseek-v4-flash-0731": "dfb6ef11067bf194def812936146a7b756fbe535b1edb04ff7df1c83cc90ebb0",
     "square1:deepseek-v41-flash": "21d4e2d2c48c176ee1f035eaef6a792d68f20afb80df70745acf710a24cd792a",
     "square1:glm-52-code": "93a63c9a6cd8ef2f537b4aca079660d6e78b7dea12c854ef3a37b1f4c3f7f586",
@@ -46835,6 +48015,8 @@
     "vercel:gpt-6-sol": "2fb3b45c560e953756091f214c4a80dd820ba6652e4126298c9e08c4fd664e71",
     "vercel:gpt-61-sol": "520d1fb896605f73da24a2b91379ce117ea2a3437858e73241cce7449976f024",
     "vercel:gpt-61-terra": "b7f9694631eb2ceb37c207dafdf56a2fada2d8fbc0933ffb9785737a843b1c27",
+    "vercel:gpt-62-astra": "54961921e3daaf0e01df1dd3499775631f1f35e986a6ae7d5ab8fafbf368ec09",
+    "vercel:gpt-62-sol": "187fbda717d61722ff6c875bf168c6620bc68eb98b30a9fd9b0f0be98413d632",
     "vercel:grok-45": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870",
     "vercel:grok-47": "6b8e13cf9d9ce937b88f44934a44a8394352c8dab1ba56e4082fe538f53531f6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
@@ -46847,6 +48029,7 @@
     "vercel:qwen37-plus": "84492c6ac4dcb865a3902eaa0a2eb0ca622859590a3d30dbe3fd796cdc425ea6",
     "vercel:qwen38-flash": "8ba56a4aeec8855d701aad9ecf1d34bfcc06ab893c364e2664a9f1b50b9ca2fe",
     "vercel:qwen38-max": "5ef782f010615f55dd65ab04280cabfe4116822f7a692524bb565aa926cb713a",
+    "vercel:qwen4-max": "1a379b6f9bb4f59eb6a8b37fb650b73fe7f5ff39c1e50a18ee12791e393c641b",
     "vertex-gemini-native:flash": "235b65f0236c77713cf0df35df3582fc0d301f40ed28e8ae6a416a7429da46e6",
     "vertex-gemini-native:gemini-25-flash-lite": "96ac62c58a6e6b693f32cfd7232f5897dd62f429fdbab8ab5885e63e62a3d80e",
     "vertex-gemini-native:gemini-25-flash": "b2a9cb56464cead22a13963cc9de886ddedb9f8765296930a735ffa95bc59a27",

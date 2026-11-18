@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "6852904d5327814444a7ad1faa7c063a71b95d800f945309b117db6908992726",
+  "hash": "11fdbd57f2e3a8f23e8d1fd18576c0690221ff403bd0699e9f0fc6bb88298f57",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -1090,6 +1090,16 @@
       "hash": "64a9d6ee300127931c7de657fa3036e192f8b47855e3888626bcb5ac0bfcba20"
     },
     {
+      "id": "openai:gpt-62-astra",
+      "url": "profiles/openai/gpt-62-astra.json",
+      "hash": "6a9ae58150511e9fcc549ca743e255b70dd475191f5456183db9ff42bbce6985"
+    },
+    {
+      "id": "openai:gpt-62-sol",
+      "url": "profiles/openai/gpt-62-sol.json",
+      "hash": "543b9e3da0d6a18e554ca1c99998c15c81360abd67052ff44753540f1729679c"
+    },
+    {
       "id": "openai:o3",
       "url": "profiles/openai/o3.json",
       "hash": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d"
@@ -1345,6 +1355,16 @@
       "hash": "d99006a79f62709d5943f9744ad20ace512e5ee3726682aa0ad6d8c105d2d80b"
     },
     {
+      "id": "openrouter:gpt-62-astra",
+      "url": "profiles/openrouter/gpt-62-astra.json",
+      "hash": "bf5c209fb262800fcf0b390ebb4fd21caa5dcd84fab008d29decc2d8a81eee9d"
+    },
+    {
+      "id": "openrouter:gpt-62-sol",
+      "url": "profiles/openrouter/gpt-62-sol.json",
+      "hash": "8a7d312585faed8cfef2ac19dba34d1f9fed7f730bed259888901a1eef7db937"
+    },
+    {
       "id": "openrouter:grok-45",
       "url": "profiles/openrouter/grok-45.json",
       "hash": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540"
@@ -1403,6 +1423,11 @@
       "id": "openrouter:qwen38-max",
       "url": "profiles/openrouter/qwen38-max.json",
       "hash": "0671e432c1c554fe46f9d3306400545b0be5b18a49a4341aeb8156c9e7587b57"
+    },
+    {
+      "id": "openrouter:qwen4-max",
+      "url": "profiles/openrouter/qwen4-max.json",
+      "hash": "742967dbeb7f83756d2a98a6fe94295d9060116be9bfe5b6d8189d31eca69bf6"
     },
     {
       "id": "square1:deepseek-v4-flash-0731",
@@ -1685,6 +1710,16 @@
       "hash": "b7f9694631eb2ceb37c207dafdf56a2fada2d8fbc0933ffb9785737a843b1c27"
     },
     {
+      "id": "vercel:gpt-62-astra",
+      "url": "profiles/vercel/gpt-62-astra.json",
+      "hash": "54961921e3daaf0e01df1dd3499775631f1f35e986a6ae7d5ab8fafbf368ec09"
+    },
+    {
+      "id": "vercel:gpt-62-sol",
+      "url": "profiles/vercel/gpt-62-sol.json",
+      "hash": "187fbda717d61722ff6c875bf168c6620bc68eb98b30a9fd9b0f0be98413d632"
+    },
+    {
       "id": "vercel:grok-45",
       "url": "profiles/vercel/grok-45.json",
       "hash": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870"
@@ -1743,6 +1778,11 @@
       "id": "vercel:qwen38-max",
       "url": "profiles/vercel/qwen38-max.json",
       "hash": "5ef782f010615f55dd65ab04280cabfe4116822f7a692524bb565aa926cb713a"
+    },
+    {
+      "id": "vercel:qwen4-max",
+      "url": "profiles/vercel/qwen4-max.json",
+      "hash": "1a379b6f9bb4f59eb6a8b37fb650b73fe7f5ff39c1e50a18ee12791e393c641b"
     },
     {
       "id": "vertex-gemini-native:flash",
