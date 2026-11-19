@@ -1,6 +1,6 @@
 {
   "id": "google:gemini-4-carbon",
-  "version": 1,
+  "version": 2,
   "displayName": "Gemini 4 Carbon",
   "displayNameI18n": {
     "ko": "Gemini 4 Carbon"
@@ -18,7 +18,7 @@
   ],
   "sortOrder": 294,
   "modelId": "gemini-4-carbon",
-  "updatedAt": 1794502759159,
+  "updatedAt": 1795078641125,
   "endpoint": {
     "kind": "static",
     "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -312,8 +312,7 @@
     "reasoning",
     "vision",
     "tools",
-    "json",
-    "cache"
+    "json"
   ],
   "sourceUrls": [
     "https://aistudio.google.com/docs/models/gemini-4-carbon",
