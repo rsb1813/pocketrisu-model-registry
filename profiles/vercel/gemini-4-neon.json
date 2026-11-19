@@ -1,0 +1,57 @@
+{
+  "id": "vercel:gemini-4-neon",
+  "version": 1,
+  "updatedAt": 1795046822686,
+  "displayName": "Gemini 4 Neon",
+  "displayNameI18n": {
+    "ko": "Gemini 4 Neon"
+  },
+  "providerBaseId": "vercel",
+  "description": "Gemini 4 Neon via Vercel AI Gateway (google/gemini-4-neon).",
+  "descriptionI18n": {
+    "ko": "Gemini 4 Neon (Vercel AI Gateway, google/gemini-4-neon)."
+  },
+  "tags": [
+    "vercel",
+    "gemini"
+  ],
+  "sortOrder": 599,
+  "modelId": "google/gemini-4-neon",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 1000000
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

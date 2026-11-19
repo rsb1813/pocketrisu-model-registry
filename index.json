@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "11fdbd57f2e3a8f23e8d1fd18576c0690221ff403bd0699e9f0fc6bb88298f57",
+  "hash": "26da546c32e4646060e3366dce5ccacf2bc1ddb430b7e4cc9a387cfb36c0087f",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -348,6 +348,11 @@
       "id": "google:gemini-4-hydrogen",
       "url": "profiles/google/gemini-4-hydrogen.json",
       "hash": "94ad2e2aae6ac592b7da3f473e9f8aace94efe3c3d117be2e35af3def95f8e65"
+    },
+    {
+      "id": "google:gemini-4-neon",
+      "url": "profiles/google/gemini-4-neon.json",
+      "hash": "0f4b3578ccbf07b8e758b1e19faea0a440e7624e66298e9919937f12746c301e"
     },
     {
       "id": "google:gemma-4-26b",
@@ -1245,6 +1250,11 @@
       "hash": "46bca36bd86901d5bce017e2d13a0cf7918452c4518959c87f87e63359ef55a7"
     },
     {
+      "id": "openrouter:gemini-4-neon",
+      "url": "profiles/openrouter/gemini-4-neon.json",
+      "hash": "42d02da3ed9fbe53a5efada0c227693238add097b47569e5d5e73820c2596cd3"
+    },
+    {
       "id": "openrouter:gemma-4-26b",
       "url": "profiles/openrouter/gemma-4-26b.json",
       "hash": "782a24a45379c4b9a94e1e9d0043d41e550cc8297544da178c3aa24e0463ff92"
@@ -1593,6 +1603,11 @@
       "id": "vercel:gemini-4-hydrogen",
       "url": "profiles/vercel/gemini-4-hydrogen.json",
       "hash": "7cc217dc59b96daf6d31e48db2b1cb72c321f1200d061e3e972e0f031b24f28c"
+    },
+    {
+      "id": "vercel:gemini-4-neon",
+      "url": "profiles/vercel/gemini-4-neon.json",
+      "hash": "06a17db0fdad39fab31a4b7b42e1dc5b126cfdea2d62bd6740c067ee63021378"
     },
     {
       "id": "vercel:gemma-4-26b",
