@@ -1,7 +1,7 @@
 {
   "id": "openrouter:gemini-4-hydrogen",
   "version": 1,
-  "updatedAt": 1794579086598,
+  "updatedAt": 1795078641125,
   "displayName": "Gemini 4 Hydrogen",
   "displayNameI18n": {
     "ko": "Gemini 4 Hydrogen"
@@ -15,7 +15,7 @@
     "openrouter",
     "gemini"
   ],
-  "sortOrder": 553,
+  "sortOrder": 556,
   "modelId": "google/gemini-4-hydrogen",
   "endpoint": {
     "kind": "static",

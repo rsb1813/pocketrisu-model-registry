@@ -18,7 +18,7 @@
   ],
   "sortOrder": 292,
   "modelId": "gemini-4-neon",
-  "updatedAt": 1795046822686,
+  "updatedAt": 1795078641125,
   "endpoint": {
     "kind": "static",
     "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -316,11 +316,11 @@
     "reasoning",
     "vision",
     "tools",
-    "json",
-    "cache"
+    "json"
   ],
   "sourceUrls": [
     "https://aistudio.google.com/docs/models/gemini-4-neon",
+    "https://aistudio.google.com/docs/whats-new-gemini-4-neon",
     "https://aistudio.google.com/docs/latest-model",
     "https://aistudio.google.com/api-reference/generate-content"
   ],

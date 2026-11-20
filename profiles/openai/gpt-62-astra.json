@@ -15,9 +15,9 @@
     "gpt",
     "reasoning"
   ],
-  "sortOrder": 89,
+  "sortOrder": 88,
   "modelId": "gpt-6.2-astra",
-  "updatedAt": 1794960545255,
+  "updatedAt": 1795078641125,
   "endpoint": {
     "kind": "static",
     "url": "https://api.openai.com/v1/chat/completions"
@@ -134,10 +134,6 @@
           "label": "Default"
         },
         {
-          "value": "flex",
-          "label": "Flex"
-        },
-        {
           "value": "priority",
           "label": "Priority"
         }
@@ -182,37 +178,6 @@
       "mapsTo": {
         "target": "body",
         "path": "response_format.type"
-      }
-    },
-    {
-      "key": "parallel_tool_calls",
-      "type": "boolean",
-      "label": "Parallel Tool Calls",
-      "default": true,
-      "mapsTo": {
-        "target": "body",
-        "path": "parallel_tool_calls"
-      }
-    },
-    {
-      "key": "logprobs",
-      "type": "boolean",
-      "label": "Logprobs",
-      "default": false,
-      "mapsTo": {
-        "target": "body",
-        "path": "logprobs"
-      }
-    },
-    {
-      "key": "top_logprobs",
-      "type": "integer",
-      "label": "Top Logprobs",
-      "min": 0,
-      "max": 20,
-      "mapsTo": {
-        "target": "body",
-        "path": "top_logprobs"
       }
     },
     {
@@ -350,31 +315,6 @@
         "order": 1
       },
       {
-        "key": "parallel_tool_calls",
-        "widget": "toggle",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 2
-      },
-      {
-        "key": "logprobs",
-        "widget": "toggle",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 3
-      },
-      {
-        "key": "top_logprobs",
-        "widget": "number-input",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 4,
-        "showIf": {
-          "key": "logprobs",
-          "equals": true
-        }
-      },
-      {
         "key": "user",
         "widget": "text",
         "visibility": "advanced",
@@ -394,7 +334,6 @@
     "streaming",
     "reasoning",
     "vision",
-    "tools",
     "json"
   ],
   "sourceUrls": [

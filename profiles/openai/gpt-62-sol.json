@@ -15,9 +15,9 @@
     "gpt",
     "reasoning"
   ],
-  "sortOrder": 88,
+  "sortOrder": 89,
   "modelId": "gpt-6.2-sol",
-  "updatedAt": 1794960545255,
+  "updatedAt": 1795078641125,
   "endpoint": {
     "kind": "static",
     "url": "https://api.openai.com/v1/chat/completions"
@@ -91,6 +91,10 @@
       "mapsTo": {
         "target": "body",
         "path": "reasoning_effort"
+      },
+      "description": "GPT-6.2 Sol always reasons; \"none\" is not accepted.",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Sol은 항상 추론합니다. \"none\"은 허용되지 않습니다."
       }
     },
     {
@@ -128,10 +132,6 @@
         {
           "value": "default",
           "label": "Default"
-        },
-        {
-          "value": "flex",
-          "label": "Flex"
         },
         {
           "value": "priority",
@@ -178,37 +178,6 @@
       "mapsTo": {
         "target": "body",
         "path": "response_format.type"
-      }
-    },
-    {
-      "key": "parallel_tool_calls",
-      "type": "boolean",
-      "label": "Parallel Tool Calls",
-      "default": true,
-      "mapsTo": {
-        "target": "body",
-        "path": "parallel_tool_calls"
-      }
-    },
-    {
-      "key": "logprobs",
-      "type": "boolean",
-      "label": "Logprobs",
-      "default": false,
-      "mapsTo": {
-        "target": "body",
-        "path": "logprobs"
-      }
-    },
-    {
-      "key": "top_logprobs",
-      "type": "integer",
-      "label": "Top Logprobs",
-      "min": 0,
-      "max": 20,
-      "mapsTo": {
-        "target": "body",
-        "path": "top_logprobs"
       }
     },
     {
@@ -346,31 +315,6 @@
         "order": 1
       },
       {
-        "key": "parallel_tool_calls",
-        "widget": "toggle",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 2
-      },
-      {
-        "key": "logprobs",
-        "widget": "toggle",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 3
-      },
-      {
-        "key": "top_logprobs",
-        "widget": "number-input",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 4,
-        "showIf": {
-          "key": "logprobs",
-          "equals": true
-        }
-      },
-      {
         "key": "user",
         "widget": "text",
         "visibility": "advanced",
@@ -390,7 +334,6 @@
     "streaming",
     "reasoning",
     "vision",
-    "tools",
     "json"
   ],
   "sourceUrls": [

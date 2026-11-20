@@ -1,10 +1,10 @@
 {
   "schemaVersion": 4,
-  "hash": "26da546c32e4646060e3366dce5ccacf2bc1ddb430b7e4cc9a387cfb36c0087f",
+  "hash": "3912041b223975026d13daf9ebf799ea19761ad81221c2d29a85dd12e4917d39",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
-      "version": 5,
+      "version": 6,
       "displayName": "Anthropic Compatible (Custom)",
       "adapterKind": "anthropic-messages",
       "authKinds": [
@@ -57,6 +57,10 @@
           "description": "Model identifier accepted by the upstream endpoint (e.g. claude-fable-5). Suggestions are first-party Claude IDs; any value the upstream accepts can be typed.",
           "required": true,
           "enum": [
+            {
+              "value": "claude-fable-5-2",
+              "label": "Claude Fable 5.2"
+            },
             {
               "value": "claude-opus-5-5",
               "label": "Claude Opus 5.5"
@@ -5117,7 +5121,7 @@
     },
     "vertex-openai": {
       "id": "vertex-openai",
-      "version": 10,
+      "version": 11,
       "displayName": "Vertex AI (OpenAI-compatible)",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -5182,6 +5186,14 @@
           "description": "Vertex OpenAI-compatible model id.",
           "required": true,
           "enum": [
+            {
+              "value": "google/gemini-4-neon",
+              "label": "Gemini 4 Neon"
+            },
+            {
+              "value": "google/gemini-4-hydrogen",
+              "label": "Gemini 4 Hydrogen"
+            },
             {
               "value": "google/gemini-4-carbon",
               "label": "Gemini 4 Carbon"
@@ -6423,7 +6435,7 @@
     "anthropic:fable-52": {
       "id": "anthropic:fable-52",
       "version": 1,
-      "updatedAt": 1794579086598,
+      "updatedAt": 1795078641125,
       "displayName": "Claude Fable 5.2",
       "displayNameI18n": {
         "ko": "Claude Fable 5.2"
@@ -6454,7 +6466,7 @@
         ]
       },
       "defaults": {
-        "max_tokens": 4096
+        "max_tokens": 16384
       },
       "schema": [
         {
@@ -6487,7 +6499,7 @@
             "target": "body",
             "path": "max_tokens"
           },
-          "default": 4096
+          "default": 16384
         },
         {
           "key": "thinking_type",
@@ -6704,6 +6716,7 @@
       ],
       "sourceUrls": [
         "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+        "https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2",
         "https://platform.claude.com/docs/en/about-claude/models/overview",
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking"
@@ -10023,8 +10036,8 @@
     },
     "anthropic:sonnet-45": {
       "id": "anthropic:sonnet-45",
-      "version": 1,
-      "updatedAt": 1780592606461,
+      "version": 2,
+      "updatedAt": 1795078641125,
       "displayName": "Claude Sonnet 4.5",
       "displayNameI18n": {
         "ko": "Claude Sonnet 4.5"
@@ -10340,8 +10353,11 @@
         ]
       },
       "recommendedTokenizer": "claude",
-      "profileStatus": "outdated",
-      "statusReason": "Below the current Claude 4.6 threshold; superseded by a newer release."
+      "profileStatus": "deprecated",
+      "statusReason": "Claude Sonnet 4.5 is deprecated and will be retired on November 30, 2026. Migrate to Claude Sonnet 5.5.",
+      "statusSourceUrls": [
+        "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+      ]
     },
     "anthropic:sonnet-46": {
       "id": "anthropic:sonnet-46",
@@ -11192,7 +11208,7 @@
     "anthropic-compatible:custom-noauth": {
       "id": "anthropic-compatible:custom-noauth",
       "version": 1,
-      "updatedAt": 1791538953035,
+      "updatedAt": 1795078683754,
       "displayName": "Anthropic Compatible (Custom, no auth)",
       "providerBaseId": "anthropic-compatible",
       "description": "Generic Anthropic Messages endpoint without authentication. Use for local bridges (e.g. a GitHub Copilot proxy on localhost) or any gateway that does not require an API key.",
@@ -11239,7 +11255,7 @@
     "anthropic-compatible:custom": {
       "id": "anthropic-compatible:custom",
       "version": 1,
-      "updatedAt": 1791538953035,
+      "updatedAt": 1795078683754,
       "displayName": "Anthropic Compatible (Custom)",
       "providerBaseId": "anthropic-compatible",
       "description": "Generic Anthropic Messages endpoint. Provide your own URL, key, and model id. Use for proxies that speak the Anthropic wire format (e.g. a GitHub Copilot bridge).",
@@ -14919,7 +14935,7 @@
     },
     "google:gemini-25-flash": {
       "id": "google:gemini-25-flash",
-      "version": 2,
+      "version": 3,
       "displayName": "Gemini 2.5 Flash",
       "displayNameI18n": {
         "ko": "Gemini 2.5 Flash"
@@ -14937,7 +14953,7 @@
       ],
       "sortOrder": 311,
       "modelId": "gemini-2.5-flash",
-      "updatedAt": 1781283722406,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -15333,12 +15349,15 @@
         ]
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current Gemini 3 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "Gemini 2.5 Flash is deprecated. From December 1, 2026, requests are routed to Gemini 3.5 Flash-Lite and billed at its rates.",
+      "statusSourceUrls": [
+        "https://aistudio.google.com/docs/deprecations"
+      ]
     },
     "google:gemini-25-pro": {
       "id": "google:gemini-25-pro",
-      "version": 2,
+      "version": 3,
       "displayName": "Gemini 2.5 Pro",
       "displayNameI18n": {
         "ko": "Gemini 2.5 Pro"
@@ -15356,7 +15375,7 @@
       ],
       "sortOrder": 310,
       "modelId": "gemini-2.5-pro",
-      "updatedAt": 1781283722406,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -15752,8 +15771,11 @@
         ]
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current Gemini 3 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "Gemini 2.5 Pro is deprecated. From December 1, 2026, requests are routed to Gemini 3.8 Flash and billed at its rates.",
+      "statusSourceUrls": [
+        "https://aistudio.google.com/docs/deprecations"
+      ]
     },
     "google:gemini-3-flash": {
       "id": "google:gemini-3-flash",
@@ -17439,7 +17461,7 @@
     },
     "google:gemini-35-flash": {
       "id": "google:gemini-35-flash",
-      "version": 3,
+      "version": 4,
       "displayName": "Gemini 3.5 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3.5 Flash"
@@ -17457,7 +17479,7 @@
       ],
       "sortOrder": 300,
       "modelId": "gemini-3.5-flash",
-      "updatedAt": 1786685377000,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -17827,7 +17849,11 @@
         ]
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "current"
+      "profileStatus": "outdated",
+      "statusReason": "Google AI Studio now routes gemini-3.5-flash requests to Gemini 3.6 Flash.",
+      "statusSourceUrls": [
+        "https://aistudio.google.com/docs/deprecations"
+      ]
     },
     "google:gemini-36-flash": {
       "id": "google:gemini-36-flash",
@@ -18223,7 +18249,7 @@
     },
     "google:gemini-37-flash": {
       "id": "google:gemini-37-flash",
-      "version": 1,
+      "version": 2,
       "displayName": "Gemini 3.7 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3.7 Flash"
@@ -18241,7 +18267,7 @@
       ],
       "sortOrder": 297,
       "modelId": "gemini-3.7-flash",
-      "updatedAt": 1786685377000,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -18608,7 +18634,11 @@
         ]
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "current"
+      "profileStatus": "outdated",
+      "statusReason": "Google AI Studio now routes gemini-3.7-flash requests to Gemini 3.8 Flash.",
+      "statusSourceUrls": [
+        "https://aistudio.google.com/docs/deprecations"
+      ]
     },
     "google:gemini-38-flash": {
       "id": "google:gemini-38-flash",
@@ -19001,7 +19031,7 @@
     },
     "google:gemini-4-argon": {
       "id": "google:gemini-4-argon",
-      "version": 1,
+      "version": 2,
       "displayName": "Gemini 4 Argon",
       "displayNameI18n": {
         "ko": "Gemini 4 Argon"
@@ -19019,7 +19049,7 @@
       ],
       "sortOrder": 295,
       "modelId": "gemini-4-argon",
-      "updatedAt": 1791965031276,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -19313,8 +19343,7 @@
         "reasoning",
         "vision",
         "tools",
-        "json",
-        "cache"
+        "json"
       ],
       "sourceUrls": [
         "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
@@ -19334,7 +19363,7 @@
     },
     "google:gemini-4-carbon": {
       "id": "google:gemini-4-carbon",
-      "version": 1,
+      "version": 2,
       "displayName": "Gemini 4 Carbon",
       "displayNameI18n": {
         "ko": "Gemini 4 Carbon"
@@ -19352,7 +19381,7 @@
       ],
       "sortOrder": 294,
       "modelId": "gemini-4-carbon",
-      "updatedAt": 1794502759159,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -19646,8 +19675,7 @@
         "reasoning",
         "vision",
         "tools",
-        "json",
-        "cache"
+        "json"
       ],
       "sourceUrls": [
         "https://aistudio.google.com/docs/models/gemini-4-carbon",
@@ -19685,7 +19713,7 @@
       ],
       "sortOrder": 293,
       "modelId": "gemini-4-hydrogen",
-      "updatedAt": 1794579086598,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -19983,11 +20011,11 @@
         "reasoning",
         "vision",
         "tools",
-        "json",
-        "cache"
+        "json"
       ],
       "sourceUrls": [
         "https://aistudio.google.com/docs/models/gemini-4-hydrogen",
+        "https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen",
         "https://aistudio.google.com/docs/latest-model",
         "https://aistudio.google.com/api-reference/generate-content"
       ],
@@ -20022,7 +20050,7 @@
       ],
       "sortOrder": 292,
       "modelId": "gemini-4-neon",
-      "updatedAt": 1795046822686,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -20320,11 +20348,11 @@
         "reasoning",
         "vision",
         "tools",
-        "json",
-        "cache"
+        "json"
       ],
       "sourceUrls": [
         "https://aistudio.google.com/docs/models/gemini-4-neon",
+        "https://aistudio.google.com/docs/whats-new-gemini-4-neon",
         "https://aistudio.google.com/docs/latest-model",
         "https://aistudio.google.com/api-reference/generate-content"
       ],
@@ -23067,6 +23095,68 @@
       "recommendedTokenizer": "claude",
       "profileStatus": "current"
     },
+    "llmgateway:claude-fable-52": {
+      "id": "llmgateway:claude-fable-52",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Claude Fable 5.2",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5.2"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Claude Fable 5.2 via LLM Gateway (claude-fable-5-2).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5.2 (LLM Gateway, claude-fable-5-2)."
+      },
+      "tags": [
+        "llmgateway",
+        "claude",
+        "fable"
+      ],
+      "sortOrder": 602,
+      "modelId": "claude-fable-5-2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
     "llmgateway:claude-haiku-55": {
       "id": "llmgateway:claude-haiku-55",
       "version": 1,
@@ -23929,6 +24019,132 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "llmgateway:gemini-4-hydrogen": {
+      "id": "llmgateway:gemini-4-hydrogen",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Gemini 4 Hydrogen",
+      "displayNameI18n": {
+        "ko": "Gemini 4 Hydrogen"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Gemini 4 Hydrogen via LLM Gateway (gemini-4-hydrogen).",
+      "descriptionI18n": {
+        "ko": "Gemini 4 Hydrogen (LLM Gateway, gemini-4-hydrogen)."
+      },
+      "tags": [
+        "llmgateway",
+        "gemini"
+      ],
+      "sortOrder": 606,
+      "modelId": "gemini-4-hydrogen",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models",
+          "https://aistudio.google.com/docs/models/gemini-4-hydrogen"
+        ],
+        "notes": "Max output per LLM Gateway GET /v1/models; the gateway reports no context_size, so the context length is the native Google AI Studio spec.",
+        "notesI18n": {
+          "ko": "최대 출력은 LLM Gateway의 GET /v1/models 기준. 게이트웨이가 context_size를 노출하지 않아 컨텍스트 길이는 Google AI Studio 원본 스펙을 따릅니다."
+        },
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "llmgateway:gemini-4-neon": {
+      "id": "llmgateway:gemini-4-neon",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Gemini 4 Neon",
+      "displayNameI18n": {
+        "ko": "Gemini 4 Neon"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Gemini 4 Neon via LLM Gateway (gemini-4-neon).",
+      "descriptionI18n": {
+        "ko": "Gemini 4 Neon (LLM Gateway, gemini-4-neon)."
+      },
+      "tags": [
+        "llmgateway",
+        "gemini"
+      ],
+      "sortOrder": 607,
+      "modelId": "gemini-4-neon",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models",
+          "https://aistudio.google.com/docs/models/gemini-4-neon"
+        ],
+        "notes": "Max output per LLM Gateway GET /v1/models; the gateway reports no context_size, so the context length is the native Google AI Studio spec.",
+        "notesI18n": {
+          "ko": "최대 출력은 LLM Gateway의 GET /v1/models 기준. 게이트웨이가 context_size를 노출하지 않아 컨텍스트 길이는 Google AI Studio 원본 스펙을 따릅니다."
+        },
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "llmgateway:glm-52": {
       "id": "llmgateway:glm-52",
       "version": 1,
@@ -24537,6 +24753,189 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "llmgateway:gpt-61-terra": {
+      "id": "llmgateway:gpt-61-terra",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "GPT-6.1 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-6.1 Terra"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-6.1 Terra via LLM Gateway (gpt-6.1-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.1 Terra (LLM Gateway, gpt-6.1-terra)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 603,
+      "modelId": "gpt-6.1-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gpt-62-astra": {
+      "id": "llmgateway:gpt-62-astra",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "GPT-6.2 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Astra"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-6.2 Astra via LLM Gateway (gpt-6.2-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Astra (LLM Gateway, gpt-6.2-astra)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 605,
+      "modelId": "gpt-6.2-astra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gpt-62-sol": {
+      "id": "llmgateway:gpt-62-sol",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "GPT-6.2 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Sol"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-6.2 Sol via LLM Gateway (gpt-6.2-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Sol (LLM Gateway, gpt-6.2-sol)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 604,
+      "modelId": "gpt-6.2-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "llmgateway:grok-45": {
       "id": "llmgateway:grok-45",
       "version": 1,
@@ -24982,6 +25381,100 @@
       },
       "defaults": {},
       "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "nanogpt:claude-fable-52": {
+      "id": "nanogpt:claude-fable-52",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Claude Fable 5.2",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5.2"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Claude Fable 5.2 via NanoGPT (anthropic/claude-fable-5.2).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5.2 (NanoGPT, anthropic/claude-fable-5.2)."
+      },
+      "tags": [
+        "nanogpt",
+        "claude",
+        "fable"
+      ],
+      "sortOrder": 549,
+      "modelId": "anthropic/claude-fable-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -25803,6 +26296,99 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "nanogpt:gemini-4-hydrogen": {
+      "id": "nanogpt:gemini-4-hydrogen",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Gemini 4 Hydrogen",
+      "displayNameI18n": {
+        "ko": "Gemini 4 Hydrogen"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Gemini 4 Hydrogen via NanoGPT (google/gemini-4-hydrogen).",
+      "descriptionI18n": {
+        "ko": "Gemini 4 Hydrogen (NanoGPT, google/gemini-4-hydrogen)."
+      },
+      "tags": [
+        "nanogpt",
+        "gemini"
+      ],
+      "sortOrder": 553,
+      "modelId": "google/gemini-4-hydrogen",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "nanogpt:gemma-4-31b": {
       "id": "nanogpt:gemma-4-31b",
       "version": 2,
@@ -26454,6 +27040,295 @@
       },
       "defaults": {},
       "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-61-terra": {
+      "id": "nanogpt:gpt-61-terra",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "GPT-6.1 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-6.1 Terra"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-6.1 Terra via NanoGPT (openai/gpt-6.1-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.1 Terra (NanoGPT, openai/gpt-6.1-terra)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 550,
+      "modelId": "openai/gpt-6.1-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-62-astra": {
+      "id": "nanogpt:gpt-62-astra",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "GPT-6.2 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Astra"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-6.2 Astra via NanoGPT (openai/gpt-6.2-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Astra (NanoGPT, openai/gpt-6.2-astra)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 552,
+      "modelId": "openai/gpt-6.2-astra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-62-sol": {
+      "id": "nanogpt:gpt-62-sol",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "GPT-6.2 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-6.2 Sol"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-6.2 Sol via NanoGPT (openai/gpt-6.2-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-6.2 Sol (NanoGPT, openai/gpt-6.2-sol)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 551,
+      "modelId": "openai/gpt-6.2-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -28740,7 +29615,7 @@
     },
     "openai:gpt-4": {
       "id": "openai:gpt-4",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-4",
       "displayNameI18n": {
         "ko": "OpenAI GPT-4"
@@ -28756,7 +29631,7 @@
       ],
       "sortOrder": 160,
       "modelId": "gpt-4",
-      "updatedAt": 1780591128566,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -29001,12 +29876,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-4 was shut down on October 23, 2026; requests fail. Use GPT-5.6 Sol.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-41-mini": {
       "id": "openai:gpt-41-mini",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-4.1 Mini",
       "displayNameI18n": {
         "ko": "OpenAI GPT-4.1 Mini"
@@ -29022,7 +29900,7 @@
       ],
       "sortOrder": 141,
       "modelId": "gpt-4.1-mini",
-      "updatedAt": 1780591128566,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -29410,12 +30288,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-4.1 mini is deprecated and will be shut down on January 14, 2027. Migrate to GPT-6 Luna.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-41": {
       "id": "openai:gpt-41",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-4.1",
       "displayNameI18n": {
         "ko": "OpenAI GPT-4.1"
@@ -29431,7 +30312,7 @@
       ],
       "sortOrder": 140,
       "modelId": "gpt-4.1",
-      "updatedAt": 1780591128566,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -29819,12 +30700,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-4.1 is deprecated and will be shut down on January 14, 2027. Migrate to GPT-6 Luna.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-4o-mini": {
       "id": "openai:gpt-4o-mini",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-4o Mini",
       "displayNameI18n": {
         "ko": "OpenAI GPT-4o Mini"
@@ -29840,7 +30724,7 @@
       ],
       "sortOrder": 151,
       "modelId": "gpt-4o-mini",
-      "updatedAt": 1780591128566,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -30228,12 +31112,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-4o mini is deprecated and will be shut down on January 14, 2027. Migrate to GPT-6 Luna.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-4o": {
       "id": "openai:gpt-4o",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-4o",
       "displayNameI18n": {
         "ko": "OpenAI GPT-4o"
@@ -30249,7 +31136,7 @@
       ],
       "sortOrder": 150,
       "modelId": "gpt-4o",
-      "updatedAt": 1780591128566,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -30637,12 +31524,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-4o is deprecated and will be shut down on January 14, 2027. Migrate to GPT-6 Luna.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-5-mini": {
       "id": "openai:gpt-5-mini",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-5 Mini",
       "displayNameI18n": {
         "ko": "OpenAI GPT-5 Mini"
@@ -30659,7 +31549,7 @@
       ],
       "sortOrder": 121,
       "modelId": "gpt-5-mini",
-      "updatedAt": 1781103554581,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -31048,11 +31938,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5 mini is deprecated and will be shut down on December 11, 2026. Migrate to GPT-6.1 Terra.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-5-nano": {
       "id": "openai:gpt-5-nano",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-5 Nano",
       "displayNameI18n": {
         "ko": "OpenAI GPT-5 Nano"
@@ -31069,7 +31963,7 @@
       ],
       "sortOrder": 122,
       "modelId": "gpt-5-nano",
-      "updatedAt": 1781103554581,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -31458,11 +32352,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5 nano is deprecated and will be shut down on December 11, 2026. Migrate to GPT-6 Luna.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-5": {
       "id": "openai:gpt-5",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-5",
       "displayNameI18n": {
         "ko": "OpenAI GPT-5"
@@ -31479,7 +32377,7 @@
       ],
       "sortOrder": 120,
       "modelId": "gpt-5",
-      "updatedAt": 1781103554581,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -31864,11 +32762,15 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5 is deprecated and will be shut down on December 11, 2026. Migrate to GPT-6.1 Sol.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-51": {
       "id": "openai:gpt-51",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-5.1",
       "displayNameI18n": {
         "ko": "OpenAI GPT-5.1"
@@ -31885,7 +32787,7 @@
       ],
       "sortOrder": 115,
       "modelId": "gpt-5.1",
-      "updatedAt": 1781103554581,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -32270,7 +33172,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5.1 is deprecated and will be shut down on April 1, 2027. Migrate to GPT-6 Sol.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-52": {
       "id": "openai:gpt-52",
@@ -33098,7 +34004,7 @@
     },
     "openai:gpt-54-nano": {
       "id": "openai:gpt-54-nano",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-5.4 Nano",
       "displayNameI18n": {
         "ko": "OpenAI GPT-5.4 Nano"
@@ -33115,7 +34021,7 @@
       ],
       "sortOrder": 107,
       "modelId": "gpt-5.4-nano",
-      "updatedAt": 1781103554581,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -33508,7 +34414,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5.4 nano is deprecated and will be shut down on April 1, 2027. Migrate to GPT-6 Luna.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai:gpt-54": {
       "id": "openai:gpt-54",
@@ -35562,7 +36472,7 @@
     },
     "openai:gpt-6-astra": {
       "id": "openai:gpt-6-astra",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-6 Astra",
       "displayNameI18n": {
         "ko": "OpenAI GPT-6 Astra"
@@ -35579,7 +36489,7 @@
       ],
       "sortOrder": 94,
       "modelId": "gpt-6-astra",
-      "updatedAt": 1788701283677,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -35757,27 +36667,6 @@
           }
         },
         {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
-          }
-        },
-        {
           "key": "user",
           "type": "string",
           "label": "User",
@@ -35919,24 +36808,6 @@
             "order": 2
           },
           {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -35956,7 +36827,6 @@
         "streaming",
         "reasoning",
         "vision",
-        "tools",
         "json"
       ],
       "sourceUrls": [
@@ -35976,7 +36846,7 @@
     },
     "openai:gpt-6-luna": {
       "id": "openai:gpt-6-luna",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-6 Luna",
       "displayNameI18n": {
         "ko": "OpenAI GPT-6 Luna"
@@ -35993,7 +36863,7 @@
       ],
       "sortOrder": 92,
       "modelId": "gpt-6-luna",
-      "updatedAt": 1790149202175,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -36071,6 +36941,10 @@
           "mapsTo": {
             "target": "body",
             "path": "reasoning_effort"
+          },
+          "description": "Tool calling through Chat Completions works on GPT-6 Luna only with \"none\".",
+          "descriptionI18n": {
+            "ko": "GPT-6 Luna의 Chat Completions 툴 호출은 \"none\"에서만 동작합니다."
           }
         },
         {
@@ -36168,27 +37042,6 @@
           "mapsTo": {
             "target": "body",
             "path": "parallel_tool_calls"
-          }
-        },
-        {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
           }
         },
         {
@@ -36333,24 +37186,6 @@
             "order": 2
           },
           {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -36390,7 +37225,7 @@
     },
     "openai:gpt-6-sol": {
       "id": "openai:gpt-6-sol",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-6 Sol",
       "displayNameI18n": {
         "ko": "OpenAI GPT-6 Sol"
@@ -36407,7 +37242,7 @@
       ],
       "sortOrder": 93,
       "modelId": "gpt-6-sol",
-      "updatedAt": 1790149202175,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -36485,6 +37320,10 @@
           "mapsTo": {
             "target": "body",
             "path": "reasoning_effort"
+          },
+          "description": "Tool calling through Chat Completions works on GPT-6 Sol only with \"none\".",
+          "descriptionI18n": {
+            "ko": "GPT-6 Sol의 Chat Completions 툴 호출은 \"none\"에서만 동작합니다."
           }
         },
         {
@@ -36582,27 +37421,6 @@
           "mapsTo": {
             "target": "body",
             "path": "parallel_tool_calls"
-          }
-        },
-        {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
           }
         },
         {
@@ -36747,24 +37565,6 @@
             "order": 2
           },
           {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -36804,7 +37604,7 @@
     },
     "openai:gpt-61-sol": {
       "id": "openai:gpt-61-sol",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI GPT-6.1 Sol",
       "displayNameI18n": {
         "ko": "OpenAI GPT-6.1 Sol"
@@ -36821,7 +37621,7 @@
       ],
       "sortOrder": 91,
       "modelId": "gpt-6.1-sol",
-      "updatedAt": 1791538923489,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -36995,27 +37795,6 @@
           }
         },
         {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
-          }
-        },
-        {
           "key": "user",
           "type": "string",
           "label": "User",
@@ -37157,24 +37936,6 @@
             "order": 2
           },
           {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -37194,7 +37955,6 @@
         "streaming",
         "reasoning",
         "vision",
-        "tools",
         "json"
       ],
       "sourceUrls": [
@@ -37232,7 +37992,7 @@
       ],
       "sortOrder": 90,
       "modelId": "gpt-6.1-terra",
-      "updatedAt": 1794579086598,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -37400,37 +38160,6 @@
           }
         },
         {
-          "key": "parallel_tool_calls",
-          "type": "boolean",
-          "label": "Parallel Tool Calls",
-          "default": true,
-          "mapsTo": {
-            "target": "body",
-            "path": "parallel_tool_calls"
-          }
-        },
-        {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
-          }
-        },
-        {
           "key": "user",
           "type": "string",
           "label": "User",
@@ -37565,31 +38294,6 @@
             "order": 1
           },
           {
-            "key": "parallel_tool_calls",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 2
-          },
-          {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -37609,13 +38313,11 @@
         "streaming",
         "reasoning",
         "vision",
-        "tools",
         "json"
       ],
       "sourceUrls": [
         "https://platform.openai.com/docs/models",
-        "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
-        "https://developers.openai.com/api/docs/changelog"
+        "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
       ],
       "limits": {
         "known": true,
@@ -37645,9 +38347,9 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 89,
+      "sortOrder": 88,
       "modelId": "gpt-6.2-astra",
-      "updatedAt": 1794960545255,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -37764,10 +38466,6 @@
               "label": "Default"
             },
             {
-              "value": "flex",
-              "label": "Flex"
-            },
-            {
               "value": "priority",
               "label": "Priority"
             }
@@ -37812,37 +38510,6 @@
           "mapsTo": {
             "target": "body",
             "path": "response_format.type"
-          }
-        },
-        {
-          "key": "parallel_tool_calls",
-          "type": "boolean",
-          "label": "Parallel Tool Calls",
-          "default": true,
-          "mapsTo": {
-            "target": "body",
-            "path": "parallel_tool_calls"
-          }
-        },
-        {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
           }
         },
         {
@@ -37980,31 +38647,6 @@
             "order": 1
           },
           {
-            "key": "parallel_tool_calls",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 2
-          },
-          {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -38024,7 +38666,6 @@
         "streaming",
         "reasoning",
         "vision",
-        "tools",
         "json"
       ],
       "sourceUrls": [
@@ -38059,9 +38700,9 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 88,
+      "sortOrder": 89,
       "modelId": "gpt-6.2-sol",
-      "updatedAt": 1794960545255,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -38135,6 +38776,10 @@
           "mapsTo": {
             "target": "body",
             "path": "reasoning_effort"
+          },
+          "description": "GPT-6.2 Sol always reasons; \"none\" is not accepted.",
+          "descriptionI18n": {
+            "ko": "GPT-6.2 Sol은 항상 추론합니다. \"none\"은 허용되지 않습니다."
           }
         },
         {
@@ -38172,10 +38817,6 @@
             {
               "value": "default",
               "label": "Default"
-            },
-            {
-              "value": "flex",
-              "label": "Flex"
             },
             {
               "value": "priority",
@@ -38222,37 +38863,6 @@
           "mapsTo": {
             "target": "body",
             "path": "response_format.type"
-          }
-        },
-        {
-          "key": "parallel_tool_calls",
-          "type": "boolean",
-          "label": "Parallel Tool Calls",
-          "default": true,
-          "mapsTo": {
-            "target": "body",
-            "path": "parallel_tool_calls"
-          }
-        },
-        {
-          "key": "logprobs",
-          "type": "boolean",
-          "label": "Logprobs",
-          "default": false,
-          "mapsTo": {
-            "target": "body",
-            "path": "logprobs"
-          }
-        },
-        {
-          "key": "top_logprobs",
-          "type": "integer",
-          "label": "Top Logprobs",
-          "min": 0,
-          "max": 20,
-          "mapsTo": {
-            "target": "body",
-            "path": "top_logprobs"
           }
         },
         {
@@ -38390,31 +39000,6 @@
             "order": 1
           },
           {
-            "key": "parallel_tool_calls",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 2
-          },
-          {
-            "key": "logprobs",
-            "widget": "toggle",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 3
-          },
-          {
-            "key": "top_logprobs",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "output",
-            "order": 4,
-            "showIf": {
-              "key": "logprobs",
-              "equals": true
-            }
-          },
-          {
             "key": "user",
             "widget": "text",
             "visibility": "advanced",
@@ -38434,7 +39019,6 @@
         "streaming",
         "reasoning",
         "vision",
-        "tools",
         "json"
       ],
       "sourceUrls": [
@@ -38455,7 +39039,7 @@
     },
     "openai:o3": {
       "id": "openai:o3",
-      "version": 1,
+      "version": 2,
       "displayName": "OpenAI o3",
       "displayNameI18n": {
         "ko": "OpenAI o3"
@@ -38472,7 +39056,7 @@
       ],
       "sortOrder": 130,
       "modelId": "o3",
-      "updatedAt": 1781103554581,
+      "updatedAt": 1795078641125,
       "endpoint": {
         "kind": "static",
         "url": "https://api.openai.com/v1/chat/completions"
@@ -38827,8 +39411,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
+      "profileStatus": "deprecated",
+      "statusReason": "o3 is deprecated and will be shut down on December 11, 2026. Migrate to GPT-6.1 Sol.",
+      "statusSourceUrls": [
+        "https://developers.openai.com/api/docs/deprecations"
+      ]
     },
     "openai-compatible:custom-noauth": {
       "id": "openai-compatible:custom-noauth",
@@ -39036,7 +39623,7 @@
     "openrouter:claude-fable-52": {
       "id": "openrouter:claude-fable-52",
       "version": 1,
-      "updatedAt": 1794579086598,
+      "updatedAt": 1795078641125,
       "displayName": "Claude Fable 5.2",
       "displayNameI18n": {
         "ko": "Claude Fable 5.2"
@@ -40346,7 +40933,7 @@
     "openrouter:gemini-4-hydrogen": {
       "id": "openrouter:gemini-4-hydrogen",
       "version": 1,
-      "updatedAt": 1794579086598,
+      "updatedAt": 1795078641125,
       "displayName": "Gemini 4 Hydrogen",
       "displayNameI18n": {
         "ko": "Gemini 4 Hydrogen"
@@ -40360,7 +40947,7 @@
         "openrouter",
         "gemini"
       ],
-      "sortOrder": 553,
+      "sortOrder": 556,
       "modelId": "google/gemini-4-hydrogen",
       "endpoint": {
         "kind": "static",
@@ -40403,7 +40990,7 @@
     "openrouter:gemini-4-neon": {
       "id": "openrouter:gemini-4-neon",
       "version": 1,
-      "updatedAt": 1795046822686,
+      "updatedAt": 1795078641125,
       "displayName": "Gemini 4 Neon",
       "displayNameI18n": {
         "ko": "Gemini 4 Neon"
@@ -40417,7 +41004,7 @@
         "openrouter",
         "gemini"
       ],
-      "sortOrder": 560,
+      "sortOrder": 557,
       "modelId": "google/gemini-4-neon",
       "endpoint": {
         "kind": "static",
@@ -40739,8 +41326,8 @@
     },
     "openrouter:gpt-5-mini": {
       "id": "openrouter:gpt-5-mini",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-5 Mini",
       "displayNameI18n": {
         "ko": "GPT-5 Mini"
@@ -40792,12 +41379,16 @@
         "maxOutputTokens": 128000
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5 mini expires on OpenRouter on December 11, 2026, when OpenAI shuts it down.",
+      "statusSourceUrls": [
+        "https://openrouter.ai/api/v1/models"
+      ]
     },
     "openrouter:gpt-5-nano": {
       "id": "openrouter:gpt-5-nano",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-5 Nano",
       "displayNameI18n": {
         "ko": "GPT-5 Nano"
@@ -40848,12 +41439,16 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5 nano expires on OpenRouter on December 11, 2026, when OpenAI shuts it down.",
+      "statusSourceUrls": [
+        "https://openrouter.ai/api/v1/models"
+      ]
     },
     "openrouter:gpt-5": {
       "id": "openrouter:gpt-5",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-5",
       "displayNameI18n": {
         "ko": "GPT-5"
@@ -40905,7 +41500,11 @@
         "maxOutputTokens": 128000
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "GPT-5 expires on OpenRouter on December 11, 2026, when OpenAI shuts it down.",
+      "statusSourceUrls": [
+        "https://openrouter.ai/api/v1/models"
+      ]
     },
     "openrouter:gpt-51": {
       "id": "openrouter:gpt-51",
@@ -41665,7 +42264,7 @@
     "openrouter:gpt-61-terra": {
       "id": "openrouter:gpt-61-terra",
       "version": 1,
-      "updatedAt": 1794579086598,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-6.1 Terra",
       "displayNameI18n": {
         "ko": "GPT-6.1 Terra"
@@ -41681,7 +42280,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 554,
+      "sortOrder": 553,
       "modelId": "openai/gpt-6.1-terra",
       "endpoint": {
         "kind": "static",
@@ -41724,7 +42323,7 @@
     "openrouter:gpt-62-astra": {
       "id": "openrouter:gpt-62-astra",
       "version": 1,
-      "updatedAt": 1794960545255,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-6.2 Astra",
       "displayNameI18n": {
         "ko": "GPT-6.2 Astra"
@@ -41740,7 +42339,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 557,
+      "sortOrder": 555,
       "modelId": "openai/gpt-6.2-astra",
       "endpoint": {
         "kind": "static",
@@ -41783,7 +42382,7 @@
     "openrouter:gpt-62-sol": {
       "id": "openrouter:gpt-62-sol",
       "version": 1,
-      "updatedAt": 1794960545255,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-6.2 Sol",
       "displayNameI18n": {
         "ko": "GPT-6.2 Sol"
@@ -41799,7 +42398,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 558,
+      "sortOrder": 554,
       "modelId": "openai/gpt-6.2-sol",
       "endpoint": {
         "kind": "static",
@@ -43098,7 +43697,7 @@
     "vercel:claude-fable-52": {
       "id": "vercel:claude-fable-52",
       "version": 1,
-      "updatedAt": 1794701203972,
+      "updatedAt": 1795078641125,
       "displayName": "Claude Fable 5.2",
       "displayNameI18n": {
         "ko": "Claude Fable 5.2"
@@ -43126,7 +43725,39 @@
         ]
       },
       "defaults": {},
-      "schema": [],
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -44410,7 +45041,7 @@
     "vercel:gemini-4-hydrogen": {
       "id": "vercel:gemini-4-hydrogen",
       "version": 1,
-      "updatedAt": 1794701203972,
+      "updatedAt": 1795078641125,
       "displayName": "Gemini 4 Hydrogen",
       "displayNameI18n": {
         "ko": "Gemini 4 Hydrogen"
@@ -44424,7 +45055,7 @@
         "vercel",
         "gemini"
       ],
-      "sortOrder": 592,
+      "sortOrder": 595,
       "modelId": "google/gemini-4-hydrogen",
       "endpoint": {
         "kind": "static",
@@ -44437,7 +45068,39 @@
         ]
       },
       "defaults": {},
-      "schema": [],
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -44459,7 +45122,7 @@
         "sourceUrls": [
           "https://ai-gateway.vercel.sh/v1/models"
         ],
-        "maxOutputTokens": 1000000
+        "maxOutputTokens": 65536
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
@@ -44467,7 +45130,7 @@
     "vercel:gemini-4-neon": {
       "id": "vercel:gemini-4-neon",
       "version": 1,
-      "updatedAt": 1795046822686,
+      "updatedAt": 1795078641125,
       "displayName": "Gemini 4 Neon",
       "displayNameI18n": {
         "ko": "Gemini 4 Neon"
@@ -44481,7 +45144,7 @@
         "vercel",
         "gemini"
       ],
-      "sortOrder": 599,
+      "sortOrder": 596,
       "modelId": "google/gemini-4-neon",
       "endpoint": {
         "kind": "static",
@@ -44494,7 +45157,39 @@
         ]
       },
       "defaults": {},
-      "schema": [],
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -44516,7 +45211,7 @@
         "sourceUrls": [
           "https://ai-gateway.vercel.sh/v1/models"
         ],
-        "maxOutputTokens": 1000000
+        "maxOutputTokens": 65536
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
@@ -45789,7 +46484,7 @@
     "vercel:gpt-61-terra": {
       "id": "vercel:gpt-61-terra",
       "version": 1,
-      "updatedAt": 1794701203972,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-6.1 Terra",
       "displayNameI18n": {
         "ko": "GPT-6.1 Terra"
@@ -45805,7 +46500,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 593,
+      "sortOrder": 592,
       "modelId": "openai/gpt-6.1-terra",
       "endpoint": {
         "kind": "static",
@@ -45818,7 +46513,43 @@
         ]
       },
       "defaults": {},
-      "schema": [],
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -45848,7 +46579,7 @@
     "vercel:gpt-62-astra": {
       "id": "vercel:gpt-62-astra",
       "version": 1,
-      "updatedAt": 1794960545255,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-6.2 Astra",
       "displayNameI18n": {
         "ko": "GPT-6.2 Astra"
@@ -45864,7 +46595,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 596,
+      "sortOrder": 594,
       "modelId": "openai/gpt-6.2-astra",
       "endpoint": {
         "kind": "static",
@@ -45877,7 +46608,39 @@
         ]
       },
       "defaults": {},
-      "schema": [],
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -45907,7 +46670,7 @@
     "vercel:gpt-62-sol": {
       "id": "vercel:gpt-62-sol",
       "version": 1,
-      "updatedAt": 1794960545255,
+      "updatedAt": 1795078641125,
       "displayName": "GPT-6.2 Sol",
       "displayNameI18n": {
         "ko": "GPT-6.2 Sol"
@@ -45923,7 +46686,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 597,
+      "sortOrder": 593,
       "modelId": "openai/gpt-6.2-sol",
       "endpoint": {
         "kind": "static",
@@ -45936,7 +46699,39 @@
         ]
       },
       "defaults": {},
-      "schema": [],
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        }
+      ],
       "uiSchema": {
         "groups": [],
         "fields": []
@@ -47401,8 +48196,8 @@
     },
     "vertex-gemini-native:gemini-4-argon": {
       "id": "vertex-gemini-native:gemini-4-argon",
-      "version": 1,
-      "updatedAt": 1791965031276,
+      "version": 2,
+      "updatedAt": 1795078641125,
       "displayName": "Vertex AI - Gemini 4 Argon",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 4 Argon on Vertex AI (native generateContent).",
@@ -47428,6 +48223,29 @@
           "mapsTo": {
             "target": "body",
             "path": "generationConfig.maxOutputTokens"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
           }
         }
       ],
@@ -47476,8 +48294,7 @@
         "reasoning",
         "vision",
         "tools",
-        "json",
-        "cache"
+        "json"
       ],
       "sourceUrls": [
         "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
@@ -47507,8 +48324,8 @@
     },
     "vertex-gemini-native:gemini-4-carbon": {
       "id": "vertex-gemini-native:gemini-4-carbon",
-      "version": 1,
-      "updatedAt": 1794502759159,
+      "version": 2,
+      "updatedAt": 1795078641125,
       "displayName": "Vertex AI - Gemini 4 Carbon",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 4 Carbon on Vertex AI (native generateContent).",
@@ -47534,6 +48351,29 @@
           "mapsTo": {
             "target": "body",
             "path": "generationConfig.maxOutputTokens"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
           }
         }
       ],
@@ -47582,8 +48422,7 @@
         "reasoning",
         "vision",
         "tools",
-        "json",
-        "cache"
+        "json"
       ],
       "sourceUrls": [
         "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
@@ -47602,6 +48441,270 @@
       },
       "descriptionI18n": {
         "ko": "Vertex AI의 Gemini 4 Carbon (네이티브 generateContent)."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current",
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536
+      }
+    },
+    "vertex-gemini-native:gemini-4-hydrogen": {
+      "id": "vertex-gemini-native:gemini-4-hydrogen",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Vertex AI - Gemini 4 Hydrogen",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Gemini 4 Hydrogen on Vertex AI (native generateContent).",
+      "modelId": "gemini-4-hydrogen",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "default": 32768,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": [
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "topP",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "topK",
+            "widget": "number-input",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presencePenalty",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "frequencyPenalty",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 6
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "vertex",
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 845,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 4 Hydrogen"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex AI의 Gemini 4 Hydrogen (네이티브 generateContent)."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current",
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536
+      }
+    },
+    "vertex-gemini-native:gemini-4-neon": {
+      "id": "vertex-gemini-native:gemini-4-neon",
+      "version": 1,
+      "updatedAt": 1795078641125,
+      "displayName": "Vertex AI - Gemini 4 Neon",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Gemini 4 Neon on Vertex AI (native generateContent).",
+      "modelId": "gemini-4-neon",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "default": 32768,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": [
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "topP",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "topK",
+            "widget": "number-input",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presencePenalty",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "frequencyPenalty",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 6
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "vertex",
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 846,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 4 Neon"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex AI의 Gemini 4 Neon (네이티브 generateContent)."
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
@@ -47706,7 +48809,7 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
-      "updatedAt": 1794502785326
+      "updatedAt": 1795078683754
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
@@ -48123,7 +49226,7 @@
     }
   },
   "baseProviderHashes": {
-    "anthropic-compatible": "06ddb3bf9243cd5307d71e0053cd7275d499481c4ed4af8225c62d489f166191",
+    "anthropic-compatible": "383b397cc23dac35e7f1221ec571784fec31245b82e32d37e9bc21a3216bc6cf",
     "anthropic": "52268f92498a8d181d78098077eb1f34ca38e47457515bfeeac25963a60d77c2",
     "bedrock-anthropic": "22d0cec5c0f0d38d2adb436ab91298062b980fa867bdcfcacbdb11ed1df161f7",
     "bedrock": "30d85601a597e964b00f09c8972b4a7654e28afe32891a49039830b1f1bc4b2a",
@@ -48143,13 +49246,13 @@
     "square1": "39217f4913a57df8a7df199d4eaf2f559ae150ad2b9b0e6b724a7d6e04694769",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
     "vertex-gemini-native": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd",
-    "vertex-openai": "896c52a560369856553217e1299a782b468402cdb818db17e696e2b25fb209d9",
+    "vertex-openai": "bd88ddddadcac866e49505cf35decf04b12208fe04fc37ead86d6e1ace3c4ddb",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
   "profileHashes": {
     "anthropic:fable-5": "733cfc7360718cfa38f1cc9ff2156176016e83b7ef8fc04aa28da49caecd51c6",
     "anthropic:fable-51": "29a63ae5f389739f46cda43af6a613518cb9b42d156216696602b30ba047d216",
-    "anthropic:fable-52": "46fbee1493d78521b93de313d0e1945d31f63ee213859951efdbbef0ae4daca8",
+    "anthropic:fable-52": "090d68c1f414b79ecaaac6a3124a3d221f14b386613bf96d4fb551ba80a345dd",
     "anthropic:haiku-45": "235d37e91f1b7ae6cad183946a013d27ef9843d035560ff2f996d21bb0593d65",
     "anthropic:haiku-55": "87ee9e3bc5c52208f04029b467aa97e90cd64bb78f9363aa8e6843f9c992aa29",
     "anthropic:opus-4": "82feacbf39d74714820155752987153371f99d6318621a1896440699e4bf329d",
@@ -48161,12 +49264,12 @@
     "anthropic:opus-5": "1c20200b31d8b5c91e51e252ea1229768288b0d0ae45623992a163243adc39a3",
     "anthropic:opus-55": "979067e52774e5468a0d39d76207eab877bbb636c832b473b47d94ff93f829a0",
     "anthropic:sonnet-4": "f5cecf916be7c435b754528b370e30b90ce491d8f069b011b7b4037151f2072d",
-    "anthropic:sonnet-45": "14d18d63f3aa94f01b888d6c1b2fe3390f909653581e28a1f9505dc8f1d1b449",
+    "anthropic:sonnet-45": "0ae3ee0fc3e9edc7932b77f76f9831f83f49072dc73a0c48d46a2e82fa6ce420",
     "anthropic:sonnet-46": "619d57b44a4144274c892436461f8de3441ea33b622c1caac9fce7d797bb3c65",
     "anthropic:sonnet-5": "aa0b0eb7416b8db99cce758d778cb41a49c005e4ce65112add34c4a6c00bb8ea",
     "anthropic:sonnet-55": "effb9aee69ee53088efce66d397a88391f5b49c1daace442f67c68bb2fb90577",
-    "anthropic-compatible:custom-noauth": "b93269e1509d175cad1ef8e30132be67a92b1679440157dcba43ba52b0d6dadb",
-    "anthropic-compatible:custom": "950ff16e02fd39ac38d1a7636452fe67d36d261193e6f8e1123cc0e962c6ecf7",
+    "anthropic-compatible:custom-noauth": "f583a85c0ddf30f54659f6021224a33239c16c0d9318922b181b13c9419f1881",
+    "anthropic-compatible:custom": "b72b306b27f1c51bf429ccd702f73e6ee7cd32165e0a6a97f9e6a11e12a608c9",
     "bedrock:openai-compatible": "e4317519ab87ec59c35173a7d4c242f0753ac9ffaf0ed54aad626cb6bb57fed1",
     "bedrock-anthropic:custom": "ef25ec3740f6192ff3df710307c9dd182aa71e44fbf8a7210e6d1f0415ef14fd",
     "cerebras:gemma-4-31b": "fee66b5484f0e348bd3b2de8c446745edf6e6e100ba232b3d6143bfb009b1d31",
@@ -48181,20 +49284,20 @@
     "deepseek:v41-flash-thinking": "ffc4f51a52668d6f433ce426fe398adff484909e8acd3903e7198f4cdc4758a9",
     "deepseek:v41-flash": "b29ce90b4be9de53a797ce15f901befde1ad395269118728337f66e7371676fc",
     "google:gemini-25-flash-lite": "0adc067b305a6b137491bbb9659961a1f559643604c3b909120827dc3a731a03",
-    "google:gemini-25-flash": "cbf9a339e531583c6263579f1f752444c98a3a0a01d0fe7d3821e24e143bdc3b",
-    "google:gemini-25-pro": "aae71489341e77c7e0e8d5582659c533003031ca1a69d45edba571f5a3e13f45",
+    "google:gemini-25-flash": "dba8e6a4fdaa557920d3dfd7620c23f5af2c716b34af98e06448bb20bbfeb0b0",
+    "google:gemini-25-pro": "0f1ab0f9f0b6929270a419e22aa58e19c0a7082d7bc042a0489e834b862ee10c",
     "google:gemini-3-flash": "0bcd85b7e77d0db902db0ac542d5338aab31cdb6019b63e6fea3eff53c4887e8",
     "google:gemini-31-flash-lite": "7eb0c74ae8c8ed1782399896e8296180bd94fc66cce3e1da9769e082ca035075",
     "google:gemini-31-pro": "38b4df87bf4fd2d0eaaf8c9043292186e04cba2cb8d0f1edece7ceece3e217e0",
     "google:gemini-35-flash-lite": "c081455b641ae474aea27f894ef295fb8dfe8e6ece69d8b54ecda6efe004c916",
-    "google:gemini-35-flash": "b76c5fca25f25e3a1bbff8d85b17778faee8fac5fc00795e00b52a54b1a740db",
+    "google:gemini-35-flash": "9a5d0422f26c5cdc14e8712e78246f7859859203bab02d6ae442fe58fe067795",
     "google:gemini-36-flash": "fca237f5daa764d9a3f7d472b81c609e0b8a83a9a7c04fd32a1b80b485cddc8c",
-    "google:gemini-37-flash": "f5134a189e7fb9f9392c9d3b40c0c4fa06f2793eef394983670f8e9deda8418b",
+    "google:gemini-37-flash": "28b553d1a88fd88f2070bb2b68261328519221793296a113c6cb0fa6a7f0d28a",
     "google:gemini-38-flash": "b37350106724fc67937144bfa672651a1c901ac8015e74c1e54aafc204dae78c",
-    "google:gemini-4-argon": "5277b999d4a4d1a1d8e7889846c7e607e81cc845f7e791a83def71e5148cfca7",
-    "google:gemini-4-carbon": "ed944605ebc56551ccc97192d86454ff345da0e9097eda951adaa628a137eca3",
-    "google:gemini-4-hydrogen": "94ad2e2aae6ac592b7da3f473e9f8aace94efe3c3d117be2e35af3def95f8e65",
-    "google:gemini-4-neon": "0f4b3578ccbf07b8e758b1e19faea0a440e7624e66298e9919937f12746c301e",
+    "google:gemini-4-argon": "592282d7ea62019beaa180a335e3a70ab7564fd8849cc1985335535ab605e35a",
+    "google:gemini-4-carbon": "d47a252e1eaad917e09b73a4d5d5f4793dc220e53c623050cc3259efe60c2161",
+    "google:gemini-4-hydrogen": "841934c1f5502b86d870839dce38cebdf6bdbd528033a6c5d78a69775e12ad96",
+    "google:gemini-4-neon": "8247449bebe780bd522bfdc84bd746573088a7f06568fd75abbc04c161fcabe9",
     "google:gemma-4-26b": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33",
     "google:gemma-4-31b": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13",
     "lightning-ai:claude-fable-5": "ee09d68bb04c0a5e448f6c2b5f6589ef50b98ed706207b079a7d6482bcd78285",
@@ -48227,6 +49330,7 @@
     "lightning-ai:openai-compatible": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20",
     "llmgateway:claude-fable-5": "7868518b02891322cf0475a977146555e3b241e14ce9fee2cee3ca1f5e6beb19",
     "llmgateway:claude-fable-51": "9331fb866933ece0e6eb427f0c0145e25bbea99b715da8b787d39843c16bb5dd",
+    "llmgateway:claude-fable-52": "4777c8e253c107bf091660779072d9d94a5c64c73f493c74502ec0f46f61f82e",
     "llmgateway:claude-haiku-55": "53e9204cac3fc610ab5adb58908f2629dd1c96789bf7a38d8ebcbb814442f6fc",
     "llmgateway:claude-opus-48": "8e6b426849d9557d5a6fb4203a83ea7266dc7434a1de422ee663781a1842fc3d",
     "llmgateway:claude-opus-5": "79b24f6cdc94e994ad7c373822ae6647fe6976b4b728d3a10280d7145070c803",
@@ -48241,6 +49345,8 @@
     "llmgateway:gemini-38-flash": "e054d4991a957386846b50075acae78b2644e3cd665016c616cc904a7b626d26",
     "llmgateway:gemini-4-argon": "97b05843ec520971bc9d35fdab2667bb34485a0577e60d9e8e9891c95bd4540c",
     "llmgateway:gemini-4-carbon": "70d28c697f6e832f243d6b614d6eb2ddef2d19c9f233eb00ebf034721fa024e0",
+    "llmgateway:gemini-4-hydrogen": "e41336cb794b2706d3b39de785620d02d8896ae23b7bf18e2cef849f6c990852",
+    "llmgateway:gemini-4-neon": "403b117e1b3397a3930360692c03fc8679e4fcf74adc428cb295eeaf0e8787f3",
     "llmgateway:glm-52": "76439d28e78513fdb1f9f26fb0bbebfedec6cfa9d5e134fd71d409c1eb283db4",
     "llmgateway:glm-53": "b4a16e02974f10313ce0d6fb0b916a183db4c9b021d81048d78811d365148e40",
     "llmgateway:gpt-55": "002471e49938830586116c7b2da9a8d0c52f03776a0c3590ff1505fb9741ad45",
@@ -48251,6 +49357,9 @@
     "llmgateway:gpt-6-luna": "e1be650252ab4ea552df3e97235734722fe34ad737117eb2491bc5ddf3f3051d",
     "llmgateway:gpt-6-sol": "a70aa52a9b1d27ebbf7e391103ec49a4ec240704e6e2daea12093ada4352e043",
     "llmgateway:gpt-61-sol": "20fef0ded16d46edfdbffb2d5806b17146574c08222ed18b1ac623ec8467966d",
+    "llmgateway:gpt-61-terra": "7bcbcb9567602ddf75493eb6f08e82b532d6ee9921c94d418905b7e81afa2773",
+    "llmgateway:gpt-62-astra": "ce01de11fdc8a139d0668e15a994ccfd3738a739c55954174de11fb1673e88c4",
+    "llmgateway:gpt-62-sol": "86d825c6dd92f2a0684a21d657ef4c9b0a0f58315489dc8b59addc2ef1bd15db",
     "llmgateway:grok-45": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d",
     "llmgateway:grok-47": "0d38940a591ed0ca6913c4f8942380b47bae33873ae4fdf9cc29f2a7c139f600",
     "llmgateway:kimi-k3": "fc9a6970fb1969f15d809100957985ac71302648812cded7343df53b8e2ce372",
@@ -48259,6 +49368,7 @@
     "llmgateway:qwen37-max": "dcd7ee2882f6ae428377766382aa7920f9d8b217c1f075dc22feb4a60417b42e",
     "llmgateway:qwen38-max": "e0ded0ce0c3857b1c375ab034adb9dd9b86f3c755310cfe4ad4671b0c76d005e",
     "nanogpt:claude-fable-51": "f999a3889bf85f6aae894851c587cd5dbae3fa00d3a83ed5ac14a74b3c007b76",
+    "nanogpt:claude-fable-52": "4fe8b02e57c770dfa973cc596a8b2b7ad11c4f3c943b0a75072c1294648b4d7e",
     "nanogpt:claude-haiku-55": "810bec427fe518a4796da75ad9e8967d7962dd851b359d49d763d1c74b2dddd6",
     "nanogpt:claude-opus-55": "fe291b629cfeebeddb167aa1b8f1e575a8a8c0aeade26b1d8130ed1bf2023367",
     "nanogpt:claude-sonnet-5": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3",
@@ -48272,6 +49382,7 @@
     "nanogpt:gemini-38-flash": "5725a8a4c2f4f29bf42356464fa88c82c6bc38d4c97ebf9edea07d0949a71ea6",
     "nanogpt:gemini-4-argon": "94316bdaaf5f4c8a98efab44cd16c8fb79803cad918ad3638bde50313c1288a2",
     "nanogpt:gemini-4-carbon": "b451060982be8e639deca5ab0d2f7c54679311a1b76c56ebb9d8126007168d60",
+    "nanogpt:gemini-4-hydrogen": "29602673ef1cf47950e1d68f926018c636681d1ea8e1370d3792263dbeff91a9",
     "nanogpt:gemma-4-31b": "bfed19636c85b0a4a3fde5ddeb25158fa2c9fb5b7ee5dbc55660e2ac663c7e2a",
     "nanogpt:glm-51": "3f2d1d24d7a84b19232f4ac1b37182006b9c4948fd6eb315672e5e7ad1fe238f",
     "nanogpt:glm-52": "b0f4a94430929a2000938bd0c8bb9821e5cb9d7bec7bb80a2325a04980220b49",
@@ -48283,6 +49394,9 @@
     "nanogpt:gpt-6-luna": "938b3c3c7568d0fce465d11578c57ddfe9ea1592bd820a7f73be9711bd11589d",
     "nanogpt:gpt-6-sol": "697ceecc0a1230ae349f91268f62905c58b4c9fcb090304481a4bed3e3ebd126",
     "nanogpt:gpt-61-sol": "496c3fb2b68b8d6b1aa5dee84a8ad2ddb6678ed35f6bb6d40db49355c2e89638",
+    "nanogpt:gpt-61-terra": "f8d591972b2667c42cb035df505932d747ed6b0da1a70b51831dcbc7472ff09c",
+    "nanogpt:gpt-62-astra": "0379935e9876018f53056852bb85ec5408d0d854ffc7b92a859db0fd652636df",
+    "nanogpt:gpt-62-sol": "dbaecb165310029d4534dd8854c1f09f5678b87b13a869e8e2dbe5e342d27953",
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
     "nanogpt:grok-45": "75052304082513093d01f32650911cc9900abf7bd2438ff7fa303d08e9186d06",
     "nanogpt:grok-47": "59a90fe91696c89ee03a6da0b548e0c992885a2a86b4499e04097c8b96694ccf",
@@ -48321,36 +49435,36 @@
     "ollama-cloud:nemotron-3-ultra": "2ea549b0dcb6fdf3447603b266dcdb40677efad3ee47a06c7f4be3c5c98f1ff8",
     "ollama-cloud:qwen35-397b": "42c130f02fbf7d8f9837fc64eea8fd141a249b2c1b093d2e0076b10e530b055e",
     "ollama-cloud:standard": "d9c60f9d9eef45851f4e3a2c9c0a0fed116ac204c3ba7bab488c37949b6b27e0",
-    "openai:gpt-4": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299",
-    "openai:gpt-41-mini": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4",
-    "openai:gpt-41": "c997a8c6d6c59b2413146ec3904b13e7e3ad58a30d0fcef544135679600f01ed",
-    "openai:gpt-4o-mini": "83ef4bbe36380ffe53f2dabcc5f4eabfb93407bbb2376ae29d84de8c5113a385",
-    "openai:gpt-4o": "962880fd6ecc42bba328816185a7ef88129703e2ba1bb26b55b9861a5e4d2016",
-    "openai:gpt-5-mini": "b0b7a7b5ef3922cba3b3d0e2780f8db7be273f98254d0b551aa46cab6d86d7a9",
-    "openai:gpt-5-nano": "5b3aaa70e771bf08f88a02eaa7a02a7d0d54c4c1755dd526d3fff9de45c58ff7",
-    "openai:gpt-5": "d85cf741b074e1697d122f6b378e85d682538a5513bddead2cab860eadbfe17a",
-    "openai:gpt-51": "c9af2a60b16f3ca8128811b83e75109c52f7790fc39503a59e247936402dd54e",
+    "openai:gpt-4": "0138d5155263e50dceac753c64964bce2a96d44058dcb7a7d0ff87ca627f9e8c",
+    "openai:gpt-41-mini": "49d9c6c45cf452ebadcc323e7d026de2a21d179f142f586f22103fd4f3d641af",
+    "openai:gpt-41": "346e0d8ae7e72c16fc2d26a382421c6a5f29947bda9b96651035ed217ea21a9e",
+    "openai:gpt-4o-mini": "6480c1349ee57320bc51f2b8b79b8c45941dc23d052294c352c705535649185a",
+    "openai:gpt-4o": "0ffd6e7b292af01366c0d447abafb6114e999f4fd84b8ae3b03450626570b73f",
+    "openai:gpt-5-mini": "12cc81d75e3d3e1c5224911a8b267dce5b87e8f3ea0dbd54fe63319a6dbdb8bb",
+    "openai:gpt-5-nano": "922a4c35bf24d666844dc6a7c4d9c11a854582fd7771f9628f474e6fc092284e",
+    "openai:gpt-5": "3b25f31f81bae3ecf95bf0123dc8e3f983b937fe3461377203f615772178a5bb",
+    "openai:gpt-51": "0e0b0fed38a3a98f5027f182f955575368e815241c035858832d35f405ba3b6b",
     "openai:gpt-52": "4c77495c74e6b6b8c68c3fc9324aa8a2c819908f139fba95f9f07f8a212deaf3",
     "openai:gpt-54-mini": "4a0ab9856616d1e66263e7b72f4a8488ec707c4a4152132e3809211c5b3dcfcc",
-    "openai:gpt-54-nano": "ee7043cdc417b615cdea929c75657f50992b5d147d4749be7b7843f4f864e21b",
+    "openai:gpt-54-nano": "42ea3e9d81aac30ace61264f92fcdd4147424c5e3e1c8fb483eeb7cbf785e8ba",
     "openai:gpt-54": "efe6f06a2f9c36a863f82381768ce6c42974b45cc5e256a281f23bde1f2558dd",
     "openai:gpt-55": "a129ae82e2446d82796a4d74e57b9ac45bda44337e38ede19e5d53e3a0b718ea",
     "openai:gpt-56-luna": "9c1e4918e1b4d01976fd7df429101d01e7dbb322ba439da9f861e37bdee2654f",
     "openai:gpt-56-sol": "153dfd24805eb727143b29d38d0a4761a27d44107812de2cc2b3d128e3bb8b4d",
     "openai:gpt-56-terra": "54c0a1d63755a5937efdb6f706bec7099c217d95077b07a490a5ccfe682c930c",
-    "openai:gpt-6-astra": "c67c789bbd6db19b871da6a7e5cde48e9eb6a76210bdd8620bf82a9c97caaf18",
-    "openai:gpt-6-luna": "131eafbea4138101aaeb257d6837f626ac22abc47d9e78e60a2b712fc17bc6ce",
-    "openai:gpt-6-sol": "d0a22a9ac34f057c243aca4e67f566ab3d3333d9af68111e9f0283d12034da99",
-    "openai:gpt-61-sol": "875a3c5dcdd6b035bb11c74faef5184e6dc49244272a99f4215c3f02f1e8f90c",
-    "openai:gpt-61-terra": "64a9d6ee300127931c7de657fa3036e192f8b47855e3888626bcb5ac0bfcba20",
-    "openai:gpt-62-astra": "6a9ae58150511e9fcc549ca743e255b70dd475191f5456183db9ff42bbce6985",
-    "openai:gpt-62-sol": "543b9e3da0d6a18e554ca1c99998c15c81360abd67052ff44753540f1729679c",
-    "openai:o3": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d",
+    "openai:gpt-6-astra": "30ac15b86860842f4b6bc147b721d566c41a3e99abadc21889a96f44aecab710",
+    "openai:gpt-6-luna": "3d2bbaa4ff6561aac8707b71a681a305ac52e717a721431b35f330e7416ef01b",
+    "openai:gpt-6-sol": "0da4f6785b111bf7630e5c94dcab870622a12c8463da7a9670a242a61e4cb083",
+    "openai:gpt-61-sol": "1e824f28d0a4283cb35047e731f265b903f5b737bd38f0e296d23af6b7804dbd",
+    "openai:gpt-61-terra": "2572941e9080a4be41430f4bb01dd617b2b6aa22a7b006bfe642bb2eb6deff53",
+    "openai:gpt-62-astra": "7ccfc5fa9daaf8e908c195ed3448752519b53e6f41bdb8b0076f7767027c901c",
+    "openai:gpt-62-sol": "3f47f962ccde1dada93dbc71e30b9f33e4b0e8cd5a6be8c2b2ffdebcbbd5181c",
+    "openai:o3": "725f73c0d94014ed93451209c2cc2d3681b14d451cdb17a9357fb9edba98aba1",
     "openai-compatible:custom-noauth": "7048ecedbb15d1f851a38077305a2a78093277e81eb8e829f13f9b5f3f7ac696",
     "openai-compatible:custom": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b",
     "openrouter:claude-fable-5": "11dde47691746bdf62df4a4361e03df7e9f6386401f035e4de6f779e62f703ac",
     "openrouter:claude-fable-51": "b8debf74c0d9c32417150ee3a64e4138aea3810863c655736d3492bb861efd3e",
-    "openrouter:claude-fable-52": "b59df00f066bbbfad1930891a8472f66b61345b362aa9fd602d64bcea524eef9",
+    "openrouter:claude-fable-52": "2497fa91bbcc68a153f596507b060e494c813a4eafd593d4c6624fcae7d9963a",
     "openrouter:claude-haiku-55": "60f10de527df976bb39b432e5570d25a463e8a047196f021cf94275bcba6baf0",
     "openrouter:claude-opus-46": "192f76ad5e996fffe223e7c986f1ec17cb5a8504a6c0cf4582744d44480fe6ab",
     "openrouter:claude-opus-47": "1b286c74916ee02e11c7bf347e5d53c6bf9d92e46bd750d2719a3dcf933177fe",
@@ -48373,16 +49487,16 @@
     "openrouter:gemini-38-flash": "69901902695c5693cac1633e2fb75915b24d75bffc32615a12e46b35d6996d91",
     "openrouter:gemini-4-argon": "49e9048e28442f05d26bd0e7ae3cac09e5d366d0a1b3f6070e7a162de9db3840",
     "openrouter:gemini-4-carbon": "326f6762b474a1b08b1a4b146c4e9baa9cf4bda0d0ae0715464d94271ad4c097",
-    "openrouter:gemini-4-hydrogen": "46bca36bd86901d5bce017e2d13a0cf7918452c4518959c87f87e63359ef55a7",
-    "openrouter:gemini-4-neon": "42d02da3ed9fbe53a5efada0c227693238add097b47569e5d5e73820c2596cd3",
+    "openrouter:gemini-4-hydrogen": "3b13a7563e7221c7e9539226a1445fb9baa147d936ebc150f23aa1ba21c3b52d",
+    "openrouter:gemini-4-neon": "56568d6d4dbaf9686a235dd8b3b7f956ccb1f091a963aad6c952546531621c19",
     "openrouter:gemma-4-26b": "782a24a45379c4b9a94e1e9d0043d41e550cc8297544da178c3aa24e0463ff92",
     "openrouter:gemma-4-31b": "189d5411dd94a5daf1eb3e4f59d11e579666bc22f087eba76bb92b405bcad59b",
     "openrouter:glm-51": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf",
     "openrouter:glm-52": "806581f71e1369e77e9bc7f5e7e3b85aa6c732a6b4bf35a9e646b38c5a343943",
     "openrouter:glm-53": "e6e7d625d1858fee14a021320cbdfd32a6e32215f967fbefbe77b8469b766efd",
-    "openrouter:gpt-5-mini": "8ad2c720ddc768db9570be630cccd5b3603f62766160b77a1ae74bd97650bfa7",
-    "openrouter:gpt-5-nano": "13d00ac52b00bfcdfd6cf656632a021bd81395efda0af91dc6ace01f361be30a",
-    "openrouter:gpt-5": "8b2901a09271a95cf0c1ed04de85da924106826f2350dd1f13b842ec960e0375",
+    "openrouter:gpt-5-mini": "9415993d2761c02e2e880ea2f670d36e0067e70e2e2747af19523d0c245db3f8",
+    "openrouter:gpt-5-nano": "275ffec6d740b1dea442f96be12d583a951db2c8e3ae46c6d2a54228400690a1",
+    "openrouter:gpt-5": "c6c0986c7b790b0cc8c256000dd6349e3f957514f237791286d6c4ab9614e14a",
     "openrouter:gpt-51": "1df82a52434b87dda0e79dafd173699174020d7d965830432cc8e7dd1fcf6ddf",
     "openrouter:gpt-52": "9cb6580d2f7fc29b14dc2617945f93d642f39233d3ddf10f4357fac2b05f50f0",
     "openrouter:gpt-54-mini": "8dfa724f17e7321e45e33f602baffd9499f3b091dadc14ffb2be0d0f4c448fa8",
@@ -48396,9 +49510,9 @@
     "openrouter:gpt-6-luna": "be12451e80781f4d48ad4679b4894142d6e1062bf19d76f44947a7b0fc54e786",
     "openrouter:gpt-6-sol": "9f84cfa4716dfae93ee7a60b6c6414b08b4b7c664d4b3774acdee8943014fac7",
     "openrouter:gpt-61-sol": "25722670ee3b2a3bf8d2e91cef1d00d88b486beff86b20431c82023098376749",
-    "openrouter:gpt-61-terra": "d99006a79f62709d5943f9744ad20ace512e5ee3726682aa0ad6d8c105d2d80b",
-    "openrouter:gpt-62-astra": "bf5c209fb262800fcf0b390ebb4fd21caa5dcd84fab008d29decc2d8a81eee9d",
-    "openrouter:gpt-62-sol": "8a7d312585faed8cfef2ac19dba34d1f9fed7f730bed259888901a1eef7db937",
+    "openrouter:gpt-61-terra": "ffdea73ba9fae14cf898654d283ca671c092c0c40433938f88004ada940f638b",
+    "openrouter:gpt-62-astra": "f7624de5258a38ba2b6412e85d95129089bdf5ea0a379bf8e9c24a816f914c31",
+    "openrouter:gpt-62-sol": "9ff6f5d7f8ef5274d01527a0d8bcae6411918ed2d1c76628d0f80553c2a75da8",
     "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
     "openrouter:grok-47": "2493848623eb699e49116a39e0fdf12897d5735dd4a6524d63dcf8f1a4d665cf",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
@@ -48421,7 +49535,7 @@
     "square1:qwen38-27b": "a5ae54431a97953904ceeaa6bb3b754315e9601709980330565950ad93019267",
     "vercel:claude-fable-5": "d1af4a46d381bc525199e2e1e5206df1b609ae0af6fa64bd1c87cb86eb683058",
     "vercel:claude-fable-51": "41feaf769f67fe6e113ea0d6f0dc8563e09908488f9894ec302e92bab4fc532b",
-    "vercel:claude-fable-52": "cbf34d84b0f1e39d11467cd5ff912f8c9b2aabdb0fad6d2f3f9b054c4f54491b",
+    "vercel:claude-fable-52": "a805c8c6af014856fd3b967367f275c100ff641da3d350aec062d4d82fbe4569",
     "vercel:claude-haiku-55": "4c73a081f5a1d56f2b03bec65262258459db93eb7dbff9b75f5afb380275c240",
     "vercel:claude-opus-46": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8",
     "vercel:claude-opus-47": "70fd5b735f5ef218011e216e61bef6d4119dedbbdc65a9028c73f42962b077f1",
@@ -48444,8 +49558,8 @@
     "vercel:gemini-38-flash": "014ab9168003c04a2b13a617d70bbb99ddc7f3362d439a48ee610fa48151eab3",
     "vercel:gemini-4-argon": "c79d37bc662808edb72c11f72f15cce2264170468cbabd72b0bf2b8059bf2c67",
     "vercel:gemini-4-carbon": "be6b7d8f56dca36a0d2a78f0b8e4d68b20e62003013217e5d00db50caa6f7579",
-    "vercel:gemini-4-hydrogen": "7cc217dc59b96daf6d31e48db2b1cb72c321f1200d061e3e972e0f031b24f28c",
-    "vercel:gemini-4-neon": "06a17db0fdad39fab31a4b7b42e1dc5b126cfdea2d62bd6740c067ee63021378",
+    "vercel:gemini-4-hydrogen": "e60b0cac227a31f9d3c7655e63e647c78a1b6fa963100c3f15bff5ec937e687b",
+    "vercel:gemini-4-neon": "c343a72aa0fb77c0af5fabdf0b0ef3d15e1a27f1ba8bb973b7a66253d7f65c2d",
     "vercel:gemma-4-26b": "26b10496d9d3de7dc5b02a3e05e9c062fdbc18cc29cd97b98eb22eacb4cc844a",
     "vercel:gemma-4-31b": "beda0439bad645a0a7ddc2d9c3b8c258523050338d2375f5bd5ab44eb95065eb",
     "vercel:glm-51": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859",
@@ -48468,9 +49582,9 @@
     "vercel:gpt-6-luna": "dd0126c1da66b73fb82de9915ab77b9352b500db258fc9abdd844e063489be26",
     "vercel:gpt-6-sol": "2fb3b45c560e953756091f214c4a80dd820ba6652e4126298c9e08c4fd664e71",
     "vercel:gpt-61-sol": "520d1fb896605f73da24a2b91379ce117ea2a3437858e73241cce7449976f024",
-    "vercel:gpt-61-terra": "b7f9694631eb2ceb37c207dafdf56a2fada2d8fbc0933ffb9785737a843b1c27",
-    "vercel:gpt-62-astra": "54961921e3daaf0e01df1dd3499775631f1f35e986a6ae7d5ab8fafbf368ec09",
-    "vercel:gpt-62-sol": "187fbda717d61722ff6c875bf168c6620bc68eb98b30a9fd9b0f0be98413d632",
+    "vercel:gpt-61-terra": "dbd1afcead0c2dd732b10195d1d54c021865d3a5f0163d369a145995e7f34932",
+    "vercel:gpt-62-astra": "3b72db7e62aaace821e556c2f48684bd61af519b29f3cff1d9cebba4bd88cc18",
+    "vercel:gpt-62-sol": "45bec866c311c50bfa3a3985fea57c2520b5566db9a492314843803db1a48200",
     "vercel:grok-45": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870",
     "vercel:grok-47": "6b8e13cf9d9ce937b88f44934a44a8394352c8dab1ba56e4082fe538f53531f6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
@@ -48496,10 +49610,12 @@
     "vertex-gemini-native:gemini-36-flash": "5ed7e26ae855bfa81e24bfc6501960139c0392f3984f75b1f2e970a9a8d311ce",
     "vertex-gemini-native:gemini-37-flash": "84fe6f66e16a18ae144605f834a6d9a6151950e1475a3eb542c4b57a63e81b93",
     "vertex-gemini-native:gemini-38-flash": "87314f3b3fabe4f871f3cf56e36af2f36abaffed4fedd43d42e0f36b74cb4a03",
-    "vertex-gemini-native:gemini-4-argon": "0b8e986f70204f7a369e18542c577de89998711ab7864765a6e2cb9e30f83bd2",
-    "vertex-gemini-native:gemini-4-carbon": "758579199d52873ac9070e13d8251f7bc0fd8a41e2c703343589a6c2934e4a05",
+    "vertex-gemini-native:gemini-4-argon": "153511c3c520d73b0d9078a3895788702fd3500f048cc614548e004d587fdcf5",
+    "vertex-gemini-native:gemini-4-carbon": "ad7fe8282aed5527121d65c952e81b7eb288a4cbf3c643a15279c9268f893639",
+    "vertex-gemini-native:gemini-4-hydrogen": "ffa198da75c00f02e7ae747e87eb5328de6eb79ac2f10cc8384201f7da56fb53",
+    "vertex-gemini-native:gemini-4-neon": "e01a7ffcc3f79c30b3c3450bdc47d54215dfa9de9f0692e56e655f9d102362eb",
     "vertex-gemini-native:pro": "1ed1cb71d120cd587c561603e24b513184ec7c19fc507ff71b5f1d1a30bf206f",
-    "vertex-openai:standard": "c0c72cab54b2fc4b2df4eb7e6bedf4dc4074f21ea0d45ade4c08a402df81eb97",
+    "vertex-openai:standard": "e30fb7489f1c8b759cb8794a0a49260bfe97920cc68224844e46295b18d7cc98",
     "wellspring:deepseek-v32-marp": "642af5c20e8d563d6c60fe275de6b8b82a1575a7e14957215a979e831695b821",
     "wellspring:deepseek-v4-flash": "7e73c7b794e3143c8ae0b8b221196dba81336483f0807a2489e49298f11f0ade",
     "wellspring:deepseek-v4-pro": "ebefb49df3d0d27ff8b1e5bbd7f56df5a3ae18b65378b616b2235206af342789",

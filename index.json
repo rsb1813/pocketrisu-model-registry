@@ -1,11 +1,11 @@
 {
   "schemaVersion": 4,
-  "hash": "26da546c32e4646060e3366dce5ccacf2bc1ddb430b7e4cc9a387cfb36c0087f",
+  "hash": "3912041b223975026d13daf9ebf799ea19761ad81221c2d29a85dd12e4917d39",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
       "url": "base-providers/anthropic-compatible.json",
-      "hash": "06ddb3bf9243cd5307d71e0053cd7275d499481c4ed4af8225c62d489f166191"
+      "hash": "383b397cc23dac35e7f1221ec571784fec31245b82e32d37e9bc21a3216bc6cf"
     },
     {
       "id": "anthropic",
@@ -105,7 +105,7 @@
     {
       "id": "vertex-openai",
       "url": "base-providers/vertex-openai.json",
-      "hash": "896c52a560369856553217e1299a782b468402cdb818db17e696e2b25fb209d9"
+      "hash": "bd88ddddadcac866e49505cf35decf04b12208fe04fc37ead86d6e1ace3c4ddb"
     },
     {
       "id": "wellspring",
@@ -127,7 +127,7 @@
     {
       "id": "anthropic:fable-52",
       "url": "profiles/anthropic/fable-52.json",
-      "hash": "46fbee1493d78521b93de313d0e1945d31f63ee213859951efdbbef0ae4daca8"
+      "hash": "090d68c1f414b79ecaaac6a3124a3d221f14b386613bf96d4fb551ba80a345dd"
     },
     {
       "id": "anthropic:haiku-45",
@@ -187,7 +187,7 @@
     {
       "id": "anthropic:sonnet-45",
       "url": "profiles/anthropic/sonnet-45.json",
-      "hash": "14d18d63f3aa94f01b888d6c1b2fe3390f909653581e28a1f9505dc8f1d1b449"
+      "hash": "0ae3ee0fc3e9edc7932b77f76f9831f83f49072dc73a0c48d46a2e82fa6ce420"
     },
     {
       "id": "anthropic:sonnet-46",
@@ -207,12 +207,12 @@
     {
       "id": "anthropic-compatible:custom-noauth",
       "url": "profiles/anthropic-compatible/custom-noauth.json",
-      "hash": "b93269e1509d175cad1ef8e30132be67a92b1679440157dcba43ba52b0d6dadb"
+      "hash": "f583a85c0ddf30f54659f6021224a33239c16c0d9318922b181b13c9419f1881"
     },
     {
       "id": "anthropic-compatible:custom",
       "url": "profiles/anthropic-compatible/custom.json",
-      "hash": "950ff16e02fd39ac38d1a7636452fe67d36d261193e6f8e1123cc0e962c6ecf7"
+      "hash": "b72b306b27f1c51bf429ccd702f73e6ee7cd32165e0a6a97f9e6a11e12a608c9"
     },
     {
       "id": "bedrock:openai-compatible",
@@ -287,12 +287,12 @@
     {
       "id": "google:gemini-25-flash",
       "url": "profiles/google/gemini-25-flash.json",
-      "hash": "cbf9a339e531583c6263579f1f752444c98a3a0a01d0fe7d3821e24e143bdc3b"
+      "hash": "dba8e6a4fdaa557920d3dfd7620c23f5af2c716b34af98e06448bb20bbfeb0b0"
     },
     {
       "id": "google:gemini-25-pro",
       "url": "profiles/google/gemini-25-pro.json",
-      "hash": "aae71489341e77c7e0e8d5582659c533003031ca1a69d45edba571f5a3e13f45"
+      "hash": "0f1ab0f9f0b6929270a419e22aa58e19c0a7082d7bc042a0489e834b862ee10c"
     },
     {
       "id": "google:gemini-3-flash",
@@ -317,7 +317,7 @@
     {
       "id": "google:gemini-35-flash",
       "url": "profiles/google/gemini-35-flash.json",
-      "hash": "b76c5fca25f25e3a1bbff8d85b17778faee8fac5fc00795e00b52a54b1a740db"
+      "hash": "9a5d0422f26c5cdc14e8712e78246f7859859203bab02d6ae442fe58fe067795"
     },
     {
       "id": "google:gemini-36-flash",
@@ -327,7 +327,7 @@
     {
       "id": "google:gemini-37-flash",
       "url": "profiles/google/gemini-37-flash.json",
-      "hash": "f5134a189e7fb9f9392c9d3b40c0c4fa06f2793eef394983670f8e9deda8418b"
+      "hash": "28b553d1a88fd88f2070bb2b68261328519221793296a113c6cb0fa6a7f0d28a"
     },
     {
       "id": "google:gemini-38-flash",
@@ -337,22 +337,22 @@
     {
       "id": "google:gemini-4-argon",
       "url": "profiles/google/gemini-4-argon.json",
-      "hash": "5277b999d4a4d1a1d8e7889846c7e607e81cc845f7e791a83def71e5148cfca7"
+      "hash": "592282d7ea62019beaa180a335e3a70ab7564fd8849cc1985335535ab605e35a"
     },
     {
       "id": "google:gemini-4-carbon",
       "url": "profiles/google/gemini-4-carbon.json",
-      "hash": "ed944605ebc56551ccc97192d86454ff345da0e9097eda951adaa628a137eca3"
+      "hash": "d47a252e1eaad917e09b73a4d5d5f4793dc220e53c623050cc3259efe60c2161"
     },
     {
       "id": "google:gemini-4-hydrogen",
       "url": "profiles/google/gemini-4-hydrogen.json",
-      "hash": "94ad2e2aae6ac592b7da3f473e9f8aace94efe3c3d117be2e35af3def95f8e65"
+      "hash": "841934c1f5502b86d870839dce38cebdf6bdbd528033a6c5d78a69775e12ad96"
     },
     {
       "id": "google:gemini-4-neon",
       "url": "profiles/google/gemini-4-neon.json",
-      "hash": "0f4b3578ccbf07b8e758b1e19faea0a440e7624e66298e9919937f12746c301e"
+      "hash": "8247449bebe780bd522bfdc84bd746573088a7f06568fd75abbc04c161fcabe9"
     },
     {
       "id": "google:gemma-4-26b",
@@ -515,6 +515,11 @@
       "hash": "9331fb866933ece0e6eb427f0c0145e25bbea99b715da8b787d39843c16bb5dd"
     },
     {
+      "id": "llmgateway:claude-fable-52",
+      "url": "profiles/llmgateway/claude-fable-52.json",
+      "hash": "4777c8e253c107bf091660779072d9d94a5c64c73f493c74502ec0f46f61f82e"
+    },
+    {
       "id": "llmgateway:claude-haiku-55",
       "url": "profiles/llmgateway/claude-haiku-55.json",
       "hash": "53e9204cac3fc610ab5adb58908f2629dd1c96789bf7a38d8ebcbb814442f6fc"
@@ -585,6 +590,16 @@
       "hash": "70d28c697f6e832f243d6b614d6eb2ddef2d19c9f233eb00ebf034721fa024e0"
     },
     {
+      "id": "llmgateway:gemini-4-hydrogen",
+      "url": "profiles/llmgateway/gemini-4-hydrogen.json",
+      "hash": "e41336cb794b2706d3b39de785620d02d8896ae23b7bf18e2cef849f6c990852"
+    },
+    {
+      "id": "llmgateway:gemini-4-neon",
+      "url": "profiles/llmgateway/gemini-4-neon.json",
+      "hash": "403b117e1b3397a3930360692c03fc8679e4fcf74adc428cb295eeaf0e8787f3"
+    },
+    {
       "id": "llmgateway:glm-52",
       "url": "profiles/llmgateway/glm-52.json",
       "hash": "76439d28e78513fdb1f9f26fb0bbebfedec6cfa9d5e134fd71d409c1eb283db4"
@@ -635,6 +650,21 @@
       "hash": "20fef0ded16d46edfdbffb2d5806b17146574c08222ed18b1ac623ec8467966d"
     },
     {
+      "id": "llmgateway:gpt-61-terra",
+      "url": "profiles/llmgateway/gpt-61-terra.json",
+      "hash": "7bcbcb9567602ddf75493eb6f08e82b532d6ee9921c94d418905b7e81afa2773"
+    },
+    {
+      "id": "llmgateway:gpt-62-astra",
+      "url": "profiles/llmgateway/gpt-62-astra.json",
+      "hash": "ce01de11fdc8a139d0668e15a994ccfd3738a739c55954174de11fb1673e88c4"
+    },
+    {
+      "id": "llmgateway:gpt-62-sol",
+      "url": "profiles/llmgateway/gpt-62-sol.json",
+      "hash": "86d825c6dd92f2a0684a21d657ef4c9b0a0f58315489dc8b59addc2ef1bd15db"
+    },
+    {
       "id": "llmgateway:grok-45",
       "url": "profiles/llmgateway/grok-45.json",
       "hash": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d"
@@ -673,6 +703,11 @@
       "id": "nanogpt:claude-fable-51",
       "url": "profiles/nanogpt/claude-fable-51.json",
       "hash": "f999a3889bf85f6aae894851c587cd5dbae3fa00d3a83ed5ac14a74b3c007b76"
+    },
+    {
+      "id": "nanogpt:claude-fable-52",
+      "url": "profiles/nanogpt/claude-fable-52.json",
+      "hash": "4fe8b02e57c770dfa973cc596a8b2b7ad11c4f3c943b0a75072c1294648b4d7e"
     },
     {
       "id": "nanogpt:claude-haiku-55",
@@ -740,6 +775,11 @@
       "hash": "b451060982be8e639deca5ab0d2f7c54679311a1b76c56ebb9d8126007168d60"
     },
     {
+      "id": "nanogpt:gemini-4-hydrogen",
+      "url": "profiles/nanogpt/gemini-4-hydrogen.json",
+      "hash": "29602673ef1cf47950e1d68f926018c636681d1ea8e1370d3792263dbeff91a9"
+    },
+    {
       "id": "nanogpt:gemma-4-31b",
       "url": "profiles/nanogpt/gemma-4-31b.json",
       "hash": "bfed19636c85b0a4a3fde5ddeb25158fa2c9fb5b7ee5dbc55660e2ac663c7e2a"
@@ -793,6 +833,21 @@
       "id": "nanogpt:gpt-61-sol",
       "url": "profiles/nanogpt/gpt-61-sol.json",
       "hash": "496c3fb2b68b8d6b1aa5dee84a8ad2ddb6678ed35f6bb6d40db49355c2e89638"
+    },
+    {
+      "id": "nanogpt:gpt-61-terra",
+      "url": "profiles/nanogpt/gpt-61-terra.json",
+      "hash": "f8d591972b2667c42cb035df505932d747ed6b0da1a70b51831dcbc7472ff09c"
+    },
+    {
+      "id": "nanogpt:gpt-62-astra",
+      "url": "profiles/nanogpt/gpt-62-astra.json",
+      "hash": "0379935e9876018f53056852bb85ec5408d0d854ffc7b92a859db0fd652636df"
+    },
+    {
+      "id": "nanogpt:gpt-62-sol",
+      "url": "profiles/nanogpt/gpt-62-sol.json",
+      "hash": "dbaecb165310029d4534dd8854c1f09f5678b87b13a869e8e2dbe5e342d27953"
     },
     {
       "id": "nanogpt:gpt-oss-120b",
@@ -987,47 +1042,47 @@
     {
       "id": "openai:gpt-4",
       "url": "profiles/openai/gpt-4.json",
-      "hash": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299"
+      "hash": "0138d5155263e50dceac753c64964bce2a96d44058dcb7a7d0ff87ca627f9e8c"
     },
     {
       "id": "openai:gpt-41-mini",
       "url": "profiles/openai/gpt-41-mini.json",
-      "hash": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4"
+      "hash": "49d9c6c45cf452ebadcc323e7d026de2a21d179f142f586f22103fd4f3d641af"
     },
     {
       "id": "openai:gpt-41",
       "url": "profiles/openai/gpt-41.json",
-      "hash": "c997a8c6d6c59b2413146ec3904b13e7e3ad58a30d0fcef544135679600f01ed"
+      "hash": "346e0d8ae7e72c16fc2d26a382421c6a5f29947bda9b96651035ed217ea21a9e"
     },
     {
       "id": "openai:gpt-4o-mini",
       "url": "profiles/openai/gpt-4o-mini.json",
-      "hash": "83ef4bbe36380ffe53f2dabcc5f4eabfb93407bbb2376ae29d84de8c5113a385"
+      "hash": "6480c1349ee57320bc51f2b8b79b8c45941dc23d052294c352c705535649185a"
     },
     {
       "id": "openai:gpt-4o",
       "url": "profiles/openai/gpt-4o.json",
-      "hash": "962880fd6ecc42bba328816185a7ef88129703e2ba1bb26b55b9861a5e4d2016"
+      "hash": "0ffd6e7b292af01366c0d447abafb6114e999f4fd84b8ae3b03450626570b73f"
     },
     {
       "id": "openai:gpt-5-mini",
       "url": "profiles/openai/gpt-5-mini.json",
-      "hash": "b0b7a7b5ef3922cba3b3d0e2780f8db7be273f98254d0b551aa46cab6d86d7a9"
+      "hash": "12cc81d75e3d3e1c5224911a8b267dce5b87e8f3ea0dbd54fe63319a6dbdb8bb"
     },
     {
       "id": "openai:gpt-5-nano",
       "url": "profiles/openai/gpt-5-nano.json",
-      "hash": "5b3aaa70e771bf08f88a02eaa7a02a7d0d54c4c1755dd526d3fff9de45c58ff7"
+      "hash": "922a4c35bf24d666844dc6a7c4d9c11a854582fd7771f9628f474e6fc092284e"
     },
     {
       "id": "openai:gpt-5",
       "url": "profiles/openai/gpt-5.json",
-      "hash": "d85cf741b074e1697d122f6b378e85d682538a5513bddead2cab860eadbfe17a"
+      "hash": "3b25f31f81bae3ecf95bf0123dc8e3f983b937fe3461377203f615772178a5bb"
     },
     {
       "id": "openai:gpt-51",
       "url": "profiles/openai/gpt-51.json",
-      "hash": "c9af2a60b16f3ca8128811b83e75109c52f7790fc39503a59e247936402dd54e"
+      "hash": "0e0b0fed38a3a98f5027f182f955575368e815241c035858832d35f405ba3b6b"
     },
     {
       "id": "openai:gpt-52",
@@ -1042,7 +1097,7 @@
     {
       "id": "openai:gpt-54-nano",
       "url": "profiles/openai/gpt-54-nano.json",
-      "hash": "ee7043cdc417b615cdea929c75657f50992b5d147d4749be7b7843f4f864e21b"
+      "hash": "42ea3e9d81aac30ace61264f92fcdd4147424c5e3e1c8fb483eeb7cbf785e8ba"
     },
     {
       "id": "openai:gpt-54",
@@ -1072,42 +1127,42 @@
     {
       "id": "openai:gpt-6-astra",
       "url": "profiles/openai/gpt-6-astra.json",
-      "hash": "c67c789bbd6db19b871da6a7e5cde48e9eb6a76210bdd8620bf82a9c97caaf18"
+      "hash": "30ac15b86860842f4b6bc147b721d566c41a3e99abadc21889a96f44aecab710"
     },
     {
       "id": "openai:gpt-6-luna",
       "url": "profiles/openai/gpt-6-luna.json",
-      "hash": "131eafbea4138101aaeb257d6837f626ac22abc47d9e78e60a2b712fc17bc6ce"
+      "hash": "3d2bbaa4ff6561aac8707b71a681a305ac52e717a721431b35f330e7416ef01b"
     },
     {
       "id": "openai:gpt-6-sol",
       "url": "profiles/openai/gpt-6-sol.json",
-      "hash": "d0a22a9ac34f057c243aca4e67f566ab3d3333d9af68111e9f0283d12034da99"
+      "hash": "0da4f6785b111bf7630e5c94dcab870622a12c8463da7a9670a242a61e4cb083"
     },
     {
       "id": "openai:gpt-61-sol",
       "url": "profiles/openai/gpt-61-sol.json",
-      "hash": "875a3c5dcdd6b035bb11c74faef5184e6dc49244272a99f4215c3f02f1e8f90c"
+      "hash": "1e824f28d0a4283cb35047e731f265b903f5b737bd38f0e296d23af6b7804dbd"
     },
     {
       "id": "openai:gpt-61-terra",
       "url": "profiles/openai/gpt-61-terra.json",
-      "hash": "64a9d6ee300127931c7de657fa3036e192f8b47855e3888626bcb5ac0bfcba20"
+      "hash": "2572941e9080a4be41430f4bb01dd617b2b6aa22a7b006bfe642bb2eb6deff53"
     },
     {
       "id": "openai:gpt-62-astra",
       "url": "profiles/openai/gpt-62-astra.json",
-      "hash": "6a9ae58150511e9fcc549ca743e255b70dd475191f5456183db9ff42bbce6985"
+      "hash": "7ccfc5fa9daaf8e908c195ed3448752519b53e6f41bdb8b0076f7767027c901c"
     },
     {
       "id": "openai:gpt-62-sol",
       "url": "profiles/openai/gpt-62-sol.json",
-      "hash": "543b9e3da0d6a18e554ca1c99998c15c81360abd67052ff44753540f1729679c"
+      "hash": "3f47f962ccde1dada93dbc71e30b9f33e4b0e8cd5a6be8c2b2ffdebcbbd5181c"
     },
     {
       "id": "openai:o3",
       "url": "profiles/openai/o3.json",
-      "hash": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d"
+      "hash": "725f73c0d94014ed93451209c2cc2d3681b14d451cdb17a9357fb9edba98aba1"
     },
     {
       "id": "openai-compatible:custom-noauth",
@@ -1132,7 +1187,7 @@
     {
       "id": "openrouter:claude-fable-52",
       "url": "profiles/openrouter/claude-fable-52.json",
-      "hash": "b59df00f066bbbfad1930891a8472f66b61345b362aa9fd602d64bcea524eef9"
+      "hash": "2497fa91bbcc68a153f596507b060e494c813a4eafd593d4c6624fcae7d9963a"
     },
     {
       "id": "openrouter:claude-haiku-55",
@@ -1247,12 +1302,12 @@
     {
       "id": "openrouter:gemini-4-hydrogen",
       "url": "profiles/openrouter/gemini-4-hydrogen.json",
-      "hash": "46bca36bd86901d5bce017e2d13a0cf7918452c4518959c87f87e63359ef55a7"
+      "hash": "3b13a7563e7221c7e9539226a1445fb9baa147d936ebc150f23aa1ba21c3b52d"
     },
     {
       "id": "openrouter:gemini-4-neon",
       "url": "profiles/openrouter/gemini-4-neon.json",
-      "hash": "42d02da3ed9fbe53a5efada0c227693238add097b47569e5d5e73820c2596cd3"
+      "hash": "56568d6d4dbaf9686a235dd8b3b7f956ccb1f091a963aad6c952546531621c19"
     },
     {
       "id": "openrouter:gemma-4-26b",
@@ -1282,17 +1337,17 @@
     {
       "id": "openrouter:gpt-5-mini",
       "url": "profiles/openrouter/gpt-5-mini.json",
-      "hash": "8ad2c720ddc768db9570be630cccd5b3603f62766160b77a1ae74bd97650bfa7"
+      "hash": "9415993d2761c02e2e880ea2f670d36e0067e70e2e2747af19523d0c245db3f8"
     },
     {
       "id": "openrouter:gpt-5-nano",
       "url": "profiles/openrouter/gpt-5-nano.json",
-      "hash": "13d00ac52b00bfcdfd6cf656632a021bd81395efda0af91dc6ace01f361be30a"
+      "hash": "275ffec6d740b1dea442f96be12d583a951db2c8e3ae46c6d2a54228400690a1"
     },
     {
       "id": "openrouter:gpt-5",
       "url": "profiles/openrouter/gpt-5.json",
-      "hash": "8b2901a09271a95cf0c1ed04de85da924106826f2350dd1f13b842ec960e0375"
+      "hash": "c6c0986c7b790b0cc8c256000dd6349e3f957514f237791286d6c4ab9614e14a"
     },
     {
       "id": "openrouter:gpt-51",
@@ -1362,17 +1417,17 @@
     {
       "id": "openrouter:gpt-61-terra",
       "url": "profiles/openrouter/gpt-61-terra.json",
-      "hash": "d99006a79f62709d5943f9744ad20ace512e5ee3726682aa0ad6d8c105d2d80b"
+      "hash": "ffdea73ba9fae14cf898654d283ca671c092c0c40433938f88004ada940f638b"
     },
     {
       "id": "openrouter:gpt-62-astra",
       "url": "profiles/openrouter/gpt-62-astra.json",
-      "hash": "bf5c209fb262800fcf0b390ebb4fd21caa5dcd84fab008d29decc2d8a81eee9d"
+      "hash": "f7624de5258a38ba2b6412e85d95129089bdf5ea0a379bf8e9c24a816f914c31"
     },
     {
       "id": "openrouter:gpt-62-sol",
       "url": "profiles/openrouter/gpt-62-sol.json",
-      "hash": "8a7d312585faed8cfef2ac19dba34d1f9fed7f730bed259888901a1eef7db937"
+      "hash": "9ff6f5d7f8ef5274d01527a0d8bcae6411918ed2d1c76628d0f80553c2a75da8"
     },
     {
       "id": "openrouter:grok-45",
@@ -1487,7 +1542,7 @@
     {
       "id": "vercel:claude-fable-52",
       "url": "profiles/vercel/claude-fable-52.json",
-      "hash": "cbf34d84b0f1e39d11467cd5ff912f8c9b2aabdb0fad6d2f3f9b054c4f54491b"
+      "hash": "a805c8c6af014856fd3b967367f275c100ff641da3d350aec062d4d82fbe4569"
     },
     {
       "id": "vercel:claude-haiku-55",
@@ -1602,12 +1657,12 @@
     {
       "id": "vercel:gemini-4-hydrogen",
       "url": "profiles/vercel/gemini-4-hydrogen.json",
-      "hash": "7cc217dc59b96daf6d31e48db2b1cb72c321f1200d061e3e972e0f031b24f28c"
+      "hash": "e60b0cac227a31f9d3c7655e63e647c78a1b6fa963100c3f15bff5ec937e687b"
     },
     {
       "id": "vercel:gemini-4-neon",
       "url": "profiles/vercel/gemini-4-neon.json",
-      "hash": "06a17db0fdad39fab31a4b7b42e1dc5b126cfdea2d62bd6740c067ee63021378"
+      "hash": "c343a72aa0fb77c0af5fabdf0b0ef3d15e1a27f1ba8bb973b7a66253d7f65c2d"
     },
     {
       "id": "vercel:gemma-4-26b",
@@ -1722,17 +1777,17 @@
     {
       "id": "vercel:gpt-61-terra",
       "url": "profiles/vercel/gpt-61-terra.json",
-      "hash": "b7f9694631eb2ceb37c207dafdf56a2fada2d8fbc0933ffb9785737a843b1c27"
+      "hash": "dbd1afcead0c2dd732b10195d1d54c021865d3a5f0163d369a145995e7f34932"
     },
     {
       "id": "vercel:gpt-62-astra",
       "url": "profiles/vercel/gpt-62-astra.json",
-      "hash": "54961921e3daaf0e01df1dd3499775631f1f35e986a6ae7d5ab8fafbf368ec09"
+      "hash": "3b72db7e62aaace821e556c2f48684bd61af519b29f3cff1d9cebba4bd88cc18"
     },
     {
       "id": "vercel:gpt-62-sol",
       "url": "profiles/vercel/gpt-62-sol.json",
-      "hash": "187fbda717d61722ff6c875bf168c6620bc68eb98b30a9fd9b0f0be98413d632"
+      "hash": "45bec866c311c50bfa3a3985fea57c2520b5566db9a492314843803db1a48200"
     },
     {
       "id": "vercel:grok-45",
@@ -1862,12 +1917,22 @@
     {
       "id": "vertex-gemini-native:gemini-4-argon",
       "url": "profiles/vertex-gemini-native/gemini-4-argon.json",
-      "hash": "0b8e986f70204f7a369e18542c577de89998711ab7864765a6e2cb9e30f83bd2"
+      "hash": "153511c3c520d73b0d9078a3895788702fd3500f048cc614548e004d587fdcf5"
     },
     {
       "id": "vertex-gemini-native:gemini-4-carbon",
       "url": "profiles/vertex-gemini-native/gemini-4-carbon.json",
-      "hash": "758579199d52873ac9070e13d8251f7bc0fd8a41e2c703343589a6c2934e4a05"
+      "hash": "ad7fe8282aed5527121d65c952e81b7eb288a4cbf3c643a15279c9268f893639"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-4-hydrogen",
+      "url": "profiles/vertex-gemini-native/gemini-4-hydrogen.json",
+      "hash": "ffa198da75c00f02e7ae747e87eb5328de6eb79ac2f10cc8384201f7da56fb53"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-4-neon",
+      "url": "profiles/vertex-gemini-native/gemini-4-neon.json",
+      "hash": "e01a7ffcc3f79c30b3c3450bdc47d54215dfa9de9f0692e56e655f9d102362eb"
     },
     {
       "id": "vertex-gemini-native:pro",
@@ -1877,7 +1942,7 @@
     {
       "id": "vertex-openai:standard",
       "url": "profiles/vertex-openai/standard.json",
-      "hash": "c0c72cab54b2fc4b2df4eb7e6bedf4dc4074f21ea0d45ade4c08a402df81eb97"
+      "hash": "e30fb7489f1c8b759cb8794a0a49260bfe97920cc68224844e46295b18d7cc98"
     },
     {
       "id": "wellspring:deepseek-v32-marp",

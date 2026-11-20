@@ -1,7 +1,7 @@
 {
   "id": "vercel:gemini-4-neon",
   "version": 1,
-  "updatedAt": 1795046822686,
+  "updatedAt": 1795078641125,
   "displayName": "Gemini 4 Neon",
   "displayNameI18n": {
     "ko": "Gemini 4 Neon"
@@ -15,7 +15,7 @@
     "vercel",
     "gemini"
   ],
-  "sortOrder": 599,
+  "sortOrder": 596,
   "modelId": "google/gemini-4-neon",
   "endpoint": {
     "kind": "static",
@@ -28,7 +28,39 @@
     ]
   },
   "defaults": {},
-  "schema": [],
+  "schema": [
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+      "enum": [
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra High"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning.effort"
+      },
+      "descriptionI18n": {
+        "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+      }
+    }
+  ],
   "uiSchema": {
     "groups": [],
     "fields": []
@@ -50,7 +82,7 @@
     "sourceUrls": [
       "https://ai-gateway.vercel.sh/v1/models"
     ],
-    "maxOutputTokens": 1000000
+    "maxOutputTokens": 65536
   },
   "recommendedTokenizer": "gemma",
   "profileStatus": "current"

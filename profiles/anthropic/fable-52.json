@@ -1,7 +1,7 @@
 {
   "id": "anthropic:fable-52",
   "version": 1,
-  "updatedAt": 1794579086598,
+  "updatedAt": 1795078641125,
   "displayName": "Claude Fable 5.2",
   "displayNameI18n": {
     "ko": "Claude Fable 5.2"
@@ -32,7 +32,7 @@
     ]
   },
   "defaults": {
-    "max_tokens": 4096
+    "max_tokens": 16384
   },
   "schema": [
     {
@@ -65,7 +65,7 @@
         "target": "body",
         "path": "max_tokens"
       },
-      "default": 4096
+      "default": 16384
     },
     {
       "key": "thinking_type",
@@ -282,6 +282,7 @@
   ],
   "sourceUrls": [
     "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+    "https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2",
     "https://platform.claude.com/docs/en/about-claude/models/overview",
     "https://platform.claude.com/docs/en/build-with-claude/effort",
     "https://platform.claude.com/docs/en/build-with-claude/thinking"

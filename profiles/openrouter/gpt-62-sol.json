@@ -1,7 +1,7 @@
 {
   "id": "openrouter:gpt-62-sol",
   "version": 1,
-  "updatedAt": 1794960545255,
+  "updatedAt": 1795078641125,
   "displayName": "GPT-6.2 Sol",
   "displayNameI18n": {
     "ko": "GPT-6.2 Sol"
@@ -17,7 +17,7 @@
     "gpt",
     "reasoning"
   ],
-  "sortOrder": 558,
+  "sortOrder": 554,
   "modelId": "openai/gpt-6.2-sol",
   "endpoint": {
     "kind": "static",

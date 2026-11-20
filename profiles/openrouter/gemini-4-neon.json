@@ -1,7 +1,7 @@
 {
   "id": "openrouter:gemini-4-neon",
   "version": 1,
-  "updatedAt": 1795046822686,
+  "updatedAt": 1795078641125,
   "displayName": "Gemini 4 Neon",
   "displayNameI18n": {
     "ko": "Gemini 4 Neon"
@@ -15,7 +15,7 @@
     "openrouter",
     "gemini"
   ],
-  "sortOrder": 560,
+  "sortOrder": 557,
   "modelId": "google/gemini-4-neon",
   "endpoint": {
     "kind": "static",
